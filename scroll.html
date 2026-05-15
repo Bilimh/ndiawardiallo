@@ -2,7 +2,7 @@
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, viewport-fit=cover">
     <title>Press-Book | Le Livre & Dialogue Interculturel — UNESCO</title>
     
     <!-- Fonts & Icons -->
@@ -62,15 +62,15 @@
             justify-content: center;
         }
 
-        /* Style général des sections */
+        /* Style général des sections - version compacte */
         .section-content {
             max-width: 1280px;
-            width: 90%;
+            width: 88%;
             margin: 0 auto;
-            padding: 2rem 0;
+            padding: 0.75rem 0;
         }
 
-        /* SECTION 1 - ACCUEIL */
+        /* SECTION 1 - ACCUEIL (compacte) */
         .bg-home {
             background: linear-gradient(135deg, #0a1628 0%, #0f2b4d 50%, #1a3a6b 100%);
             position: relative;
@@ -94,19 +94,19 @@
             gap: 0.5rem;
             background: rgba(0, 112, 255, 0.2);
             backdrop-filter: blur(10px);
-            padding: 0.5rem 1.25rem;
+            padding: 0.35rem 1rem;
             border-radius: 100px;
             color: #5a9eff;
-            font-size: 0.875rem;
+            font-size: 0.7rem;
             font-weight: 500;
-            margin-bottom: 1.5rem;
+            margin-bottom: 0.75rem;
         }
 
         .hero-title {
-            font-size: 4.5rem;
+            font-size: 2.2rem;
             font-weight: 800;
-            line-height: 1.1;
-            margin-bottom: 1.5rem;
+            line-height: 1.2;
+            margin-bottom: 0.75rem;
             background: linear-gradient(135deg, #fff 0%, #5a9eff 100%);
             -webkit-background-clip: text;
             background-clip: text;
@@ -115,122 +115,88 @@
 
         .hero-quote {
             border-left: 3px solid #0070FF;
-            padding-left: 1.5rem;
+            padding-left: 1rem;
             font-style: italic;
-            font-size: 1.125rem;
+            font-size: 0.8rem;
             color: #cbd5e1;
             max-width: 500px;
         }
 
         .stat-bubbles {
             display: flex;
-            gap: 1.5rem;
-            margin-top: 2rem;
+            gap: 0.75rem;
+            margin-top: 1rem;
             flex-wrap: wrap;
         }
 
         .stat-bubble {
             background: rgba(255,255,255,0.05);
             backdrop-filter: blur(10px);
-            border-radius: 20px;
-            padding: 1rem 1.5rem;
+            border-radius: 16px;
+            padding: 0.5rem 1rem;
             text-align: center;
             border: 1px solid rgba(0,112,255,0.3);
         }
 
         .stat-number {
-            font-size: 2rem;
+            font-size: 1.3rem;
             font-weight: 800;
             color: #0070FF;
         }
 
-        /* SECTION 2 - CONCEPT & MISSION */
-        .bg-concept {
-            background: linear-gradient(135deg, #f5f9ff 0%, #e8eff9 100%);
+        .stat-label {
+            font-size: 0.65rem;
         }
-        
+
+        /* Cartes compactes */
         .card-glass {
             background: white;
-            border-radius: 28px;
-            padding: 2rem;
-            box-shadow: 0 20px 35px -12px rgba(0,0,0,0.08);
+            border-radius: 20px;
+            padding: 1rem;
+            box-shadow: 0 10px 20px -8px rgba(0,0,0,0.08);
             transition: transform 0.2s;
         }
         
-        .card-glass:hover {
-            transform: translateY(-4px);
-        }
-
-        /* SECTION 3 - EXPERTISE */
-        .bg-expertise {
-            background: linear-gradient(135deg, #e8eff9 0%, #dce6f2 100%);
-        }
-
-        /* SECTION 4 - VOIX DES CRÉATEURS */
-        .bg-voices {
-            background: linear-gradient(135deg, #dce6f2 0%, #f0f4fa 100%);
-        }
-
-        /* SECTION 5 - IMPACT */
-        .bg-impact {
-            background: linear-gradient(135deg, #f0f4fa 0%, #e8eff9 100%);
-        }
-
-        /* SECTION 6 - PARCOURS */
-        .bg-journey {
-            background: linear-gradient(135deg, #0a1628 0%, #0f2b4d 100%);
-            position: relative;
-        }
-
-        .timeline-card {
-            background: rgba(255,255,255,0.05);
-            backdrop-filter: blur(12px);
-            border-radius: 20px;
-            padding: 1.5rem;
-            border: 1px solid rgba(0,112,255,0.2);
-            transition: all 0.2s;
-        }
-        
-        .timeline-card:hover {
-            border-color: #0070FF;
-            transform: translateY(-3px);
-        }
-
-        .kpi-card {
-            background: linear-gradient(135deg, #0070FF 0%, #003c99 100%);
-            border-radius: 24px;
-            padding: 1.5rem;
-        }
-
-        /* SECTION 7 - CONTACT */
-        .bg-contact {
-            background: linear-gradient(135deg, #e8eff9 0%, #f5f9ff 100%);
-        }
-
-        /* Images stylisées */
+        /* Images compactes */
         .rounded-image {
-            border-radius: 28px;
-            box-shadow: 0 20px 35px -12px rgba(0,0,0,0.15);
+            border-radius: 20px;
+            box-shadow: 0 10px 20px -8px rgba(0,0,0,0.12);
             width: 100%;
             height: auto;
             object-fit: cover;
         }
 
-        /* Navigation dots sur desktop (côté droit) */
+        /* Timeline cards compactes */
+        .timeline-card {
+            background: rgba(255,255,255,0.05);
+            backdrop-filter: blur(12px);
+            border-radius: 16px;
+            padding: 0.75rem;
+            border: 1px solid rgba(0,112,255,0.2);
+            text-align: center;
+        }
+
+        .kpi-card {
+            background: linear-gradient(135deg, #0070FF 0%, #003c99 100%);
+            border-radius: 20px;
+            padding: 1rem;
+        }
+
+        /* Navigation dots */
         .nav-dots {
             position: fixed;
-            right: 2rem;
+            right: 1rem;
             top: 50%;
             transform: translateY(-50%);
             z-index: 100;
             display: flex;
             flex-direction: column;
-            gap: 0.75rem;
+            gap: 0.5rem;
         }
         
         .dot {
-            width: 10px;
-            height: 10px;
+            width: 8px;
+            height: 8px;
             border-radius: 50%;
             background: rgba(0,112,255,0.3);
             cursor: pointer;
@@ -239,36 +205,31 @@
         
         .dot.active {
             background: #0070FF;
-            width: 14px;
-            height: 14px;
-            box-shadow: 0 0 10px #0070FF;
-        }
-        
-        .dot:hover {
-            background: #0070FF;
-            transform: scale(1.2);
+            width: 10px;
+            height: 10px;
+            box-shadow: 0 0 8px #0070FF;
         }
 
         /* Pagination mobile en haut */
         .pagination-top {
             position: fixed;
-            top: 16px;
+            top: 12px;
             left: 50%;
             transform: translateX(-50%);
             z-index: 100;
             background: rgba(255,255,255,0.95);
             backdrop-filter: blur(12px);
             border-radius: 100px;
-            padding: 0.5rem 1rem;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            padding: 0.35rem 0.85rem;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.08);
             border: 1px solid rgba(0,112,255,0.2);
             display: flex;
-            gap: 0.75rem;
+            gap: 0.5rem;
         }
         
         .mobile-dot {
-            width: 8px;
-            height: 8px;
+            width: 6px;
+            height: 6px;
             border-radius: 50%;
             background: #cbd5e1;
             transition: all 0.2s;
@@ -277,44 +238,70 @@
         
         .mobile-dot.active {
             background: #0070FF;
-            width: 20px;
-            border-radius: 10px;
+            width: 16px;
+            border-radius: 8px;
         }
 
         @media (min-width: 769px) {
-            .pagination-top {
-                display: none;
-            }
+            .pagination-top { display: none; }
+            .hero-title { font-size: 4rem; }
+            .hero-badge { font-size: 0.875rem; padding: 0.5rem 1.25rem; }
+            .card-glass { padding: 1.75rem; }
+            .timeline-card { padding: 1.25rem; }
         }
 
         @media (max-width: 768px) {
-            .hero-title { font-size: 2.5rem; }
-            .section-content { width: 88%; }
             .nav-dots { display: none; }
+            .section-content { width: 90%; padding: 0.5rem 0; }
             
-            /* Responsive en colonne sur mobile */
-            .grid-2cols {
-                flex-direction: column;
-            }
+            /* Réductions pour tenir sur un écran */
+            .hero-title { font-size: 1.8rem; margin-bottom: 0.5rem; }
+            .hero-badge { font-size: 0.6rem; margin-bottom: 0.5rem; }
+            .hero-quote { font-size: 0.7rem; padding-left: 0.75rem; }
+            .stat-bubble { padding: 0.35rem 0.75rem; }
+            .stat-number { font-size: 1rem; }
             
-            .cards-grid {
-                grid-template-columns: 1fr !important;
-            }
+            /* Cartes en colonne */
+            .cards-row { flex-direction: column !important; gap: 0.75rem !important; }
+            .cards-grid { grid-template-columns: 1fr !important; gap: 0.75rem !important; }
+            .cards-grid-3 { grid-template-columns: 1fr 1fr !important; gap: 0.5rem !important; }
             
-            .timeline-grid {
-                grid-template-columns: 1fr 1fr !important;
-            }
+            /* Timeline */
+            .timeline-grid { grid-template-columns: 1fr 1fr !important; gap: 0.5rem !important; margin-bottom: 1rem !important; }
+            .timeline-card { padding: 0.5rem; }
+            .timeline-card i { font-size: 1rem !important; }
+            .timeline-card h3 { font-size: 0.75rem !important; margin: 0.25rem 0 !important; }
+            .timeline-card p { font-size: 0.6rem !important; }
             
-            .kpi-grid {
-                grid-template-columns: repeat(2, 1fr) !important;
-                gap: 1rem;
-            }
+            /* KPI */
+            .kpi-grid { grid-template-columns: repeat(2, 1fr) !important; gap: 0.75rem !important; }
+            .kpi-card div div { font-size: 1.2rem !important; }
+            .kpi-card div div:first-child { font-size: 1.3rem !important; }
+            .kpi-card div div:last-child { font-size: 0.6rem !important; }
+            
+            /* Images */
+            .rounded-image { height: 140px !important; }
+            
+            /* Textes */
+            h2 { font-size: 1.3rem !important; margin-bottom: 0.5rem !important; }
+            h3 { font-size: 0.9rem !important; }
+            p { font-size: 0.7rem !important; }
+            .card-glass p { font-size: 0.7rem !important; }
+            .card-glass i { font-size: 1.5rem !important; margin-bottom: 0.5rem !important; }
+            
+            /* Section impact */
+            canvas { max-width: 150px !important; max-height: 150px !important; }
+            
+            /* Contact */
+            .bg-contact i { font-size: 2rem !important; }
+            .bg-contact h2 { font-size: 1.3rem !important; }
+            .bg-contact div div { font-size: 0.7rem !important; padding: 0.4rem 0.8rem !important; }
         }
     </style>
 </head>
 <body>
 
-    <!-- Navigation dots desktop (côté droit) -->
+    <!-- Navigation dots desktop -->
     <div class="nav-dots">
         <div class="dot" data-index="0"></div>
         <div class="dot" data-index="1"></div>
@@ -325,7 +312,7 @@
         <div class="dot" data-index="6"></div>
     </div>
 
-    <!-- Pagination mobile en haut -->
+    <!-- Pagination mobile -->
     <div class="pagination-top" id="mobilePagination"></div>
 
     <!-- SECTION 1 - ACCUEIL -->
@@ -338,15 +325,15 @@
                             <i class="fas fa-microphone-alt"></i> Journaliste culturelle · RTS / Kenkeliba
                         </div>
                         <h1 class="hero-title">Le Livre &<br>Dialogue Interculturel</h1>
-                        <p style="font-size: 1.25rem; color: #94a3b8; max-width: 500px; margin-bottom: 2rem;">Médiation médiatique & préservation de la diversité culturelle</p>
+                        <p style="font-size: 0.85rem; color: #94a3b8; max-width: 500px; margin-bottom: 0.75rem;">Médiation médiatique & préservation de la diversité culturelle</p>
                         <div class="hero-quote">
-                            "La culture n'est pas un luxe, c'est une nécessité vitale pour la construction de sociétés résilientes et éclairées."
-                            <div style="margin-top: 0.75rem; color: #0070FF;">— Vision portée par l'émission</div>
+                            "La culture n'est pas un luxe, c'est une nécessité vitale."
+                            <div style="margin-top: 0.35rem; color: #0070FF; font-size: 0.7rem;">— Vision portée par l'émission</div>
                         </div>
                         <div class="stat-bubbles">
-                            <div class="stat-bubble"><div class="stat-number">100+</div><div style="font-size: 0.8rem;">Entretiens</div></div>
-                            <div class="stat-bubble"><div class="stat-number">RTS</div><div style="font-size: 0.8rem;">Référence nationale</div></div>
-                            <div class="stat-bubble"><div class="stat-number">UNESCO</div><div style="font-size: 0.8rem;">Convention 2005</div></div>
+                            <div class="stat-bubble"><div class="stat-number">100+</div><div class="stat-label">Entretiens</div></div>
+                            <div class="stat-bubble"><div class="stat-number">RTS</div><div class="stat-label">Référence nationale</div></div>
+                            <div class="stat-bubble"><div class="stat-number">UNESCO</div><div class="stat-label">Convention 2005</div></div>
                         </div>
                     </div>
                 </div>
@@ -359,22 +346,22 @@
         <div class="outer"><div class="inner">
             <div class="bg bg-concept">
                 <div class="section-content">
-                    <div class="cards-grid" style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem;">
+                    <div class="cards-grid" style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
                         <div class="card-glass">
-                            <i class="fas fa-lightbulb" style="font-size: 2.5rem; color: #0070FF; margin-bottom: 1rem;"></i>
-                            <h2 style="font-size: 1.75rem; font-weight: 700; margin-bottom: 1rem;">Concept Éditorial</h2>
-                            <p style="color: #475569; line-height: 1.6;">Une plateforme de décryptage littéraire qui transforme l'actualité des livres en enjeux de société. Approche critique, profondeur et recul sur les œuvres.</p>
+                            <i class="fas fa-lightbulb" style="font-size: 1.8rem; color: #0070FF; margin-bottom: 0.5rem;"></i>
+                            <h2 style="font-size: 1.3rem; font-weight: 700; margin-bottom: 0.5rem;">Concept Éditorial</h2>
+                            <p style="color: #475569; line-height: 1.4; font-size: 0.75rem;">Plateforme de décryptage littéraire qui transforme l'actualité des livres en enjeux de société.</p>
                         </div>
                         <div class="card-glass">
-                            <i class="fas fa-flag-checkered" style="font-size: 2.5rem; color: #0070FF; margin-bottom: 1rem;"></i>
-                            <h2 style="font-size: 1.75rem; font-weight: 700; margin-bottom: 1rem;">Mission Institutionnelle</h2>
-                            <p style="color: #475569; line-height: 1.6;">Promouvoir la bibliodiversité et garantir l'accès à la pensée contemporaine, en adéquation avec la <strong style="color: #0070FF;">Convention UNESCO 2005</strong>.</p>
+                            <i class="fas fa-flag-checkered" style="font-size: 1.8rem; color: #0070FF; margin-bottom: 0.5rem;"></i>
+                            <h2 style="font-size: 1.3rem; font-weight: 700; margin-bottom: 0.5rem;">Mission Institutionnelle</h2>
+                            <p style="color: #475569; line-height: 1.4; font-size: 0.75rem;">Promouvoir la bibliodiversité, en adéquation avec la <strong style="color: #0070FF;">Convention UNESCO 2005</strong>.</p>
                         </div>
                     </div>
-                    <div class="cards-grid" style="margin-top: 2rem; display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem;">
-                        <div class="card-glass" style="text-align: center;"><i class="fas fa-balance-scale" style="font-size: 2rem; color: #0070FF;"></i><h3 style="margin-top: 0.75rem;">Rigueur</h3><p style="font-size: 0.875rem;">Éthique journalistique stricte</p></div>
-                        <div class="card-glass" style="text-align: center;"><i class="fas fa-globe-africa" style="font-size: 2rem; color: #0070FF;"></i><h3 style="margin-top: 0.75rem;">Diversité</h3><p style="font-size: 0.875rem;">Promotion des cultures africaines</p></div>
-                        <div class="card-glass" style="text-align: center;"><i class="fas fa-graduation-cap" style="font-size: 2rem; color: #0070FF;"></i><h3 style="margin-top: 0.75rem;">Éducation</h3><p style="font-size: 0.875rem;">Alphabétisation & médias</p></div>
+                    <div style="margin-top: 1rem; display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.75rem;">
+                        <div class="card-glass" style="text-align: center; padding: 0.75rem;"><i class="fas fa-balance-scale" style="font-size: 1.2rem; color: #0070FF;"></i><h3 style="margin-top: 0.35rem; font-size: 0.8rem;">Rigueur</h3><p style="font-size: 0.6rem;">Éthique journalistique</p></div>
+                        <div class="card-glass" style="text-align: center; padding: 0.75rem;"><i class="fas fa-globe-africa" style="font-size: 1.2rem; color: #0070FF;"></i><h3 style="margin-top: 0.35rem; font-size: 0.8rem;">Diversité</h3><p style="font-size: 0.6rem;">Cultures africaines</p></div>
+                        <div class="card-glass" style="text-align: center; padding: 0.75rem;"><i class="fas fa-graduation-cap" style="font-size: 1.2rem; color: #0070FF;"></i><h3 style="margin-top: 0.35rem; font-size: 0.8rem;">Éducation</h3><p style="font-size: 0.6rem;">Alphabétisation</p></div>
                     </div>
                 </div>
             </div>
@@ -385,20 +372,19 @@
     <section>
         <div class="outer"><div class="inner">
             <div class="bg bg-expertise">
-                <div class="section-content" style="display: flex; align-items: center; justify-content: space-between; gap: 3rem; flex-wrap: wrap;">
-                    <div style="flex: 1; min-width: 250px;">
-                        <i class="fas fa-tv" style="font-size: 2.5rem; color: #0070FF; margin-bottom: 1rem;"></i>
-                        <h2 style="font-size: 2rem; font-weight: 700; margin-bottom: 1rem;">Expertise RTS / Kenkeliba</h2>
-                        <p style="color: #475569; margin-bottom: 1.5rem;">Forte d'une expérience de plusieurs années au sein de la chaîne nationale RTS, j'ai bâti une relation de confiance avec le public.</p>
+                <div class="section-content" style="display: flex; align-items: center; gap: 1rem; flex-wrap: wrap;">
+                    <div style="flex: 1; min-width: 200px;">
+                        <i class="fas fa-tv" style="font-size: 1.5rem; color: #0070FF; margin-bottom: 0.5rem;"></i>
+                        <h2 style="font-size: 1.3rem; font-weight: 700; margin-bottom: 0.5rem;">Expertise RTS / Kenkeliba</h2>
+                        <p style="color: #475569; margin-bottom: 0.75rem; font-size: 0.7rem;">Forte d'une expérience de plusieurs années au sein de la chaîne nationale RTS.</p>
                         <ul style="list-style: none;">
-                            <li style="margin-bottom: 0.75rem;"><i class="fas fa-check-circle" style="color: #0070FF; margin-right: 0.75rem;"></i> Vulgarisation de la pensée littéraire africaine</li>
-                            <li style="margin-bottom: 0.75rem;"><i class="fas fa-check-circle" style="color: #0070FF; margin-right: 0.75rem;"></i> Interface entre institutions et grand public</li>
-                            <li><i class="fas fa-check-circle" style="color: #0070FF; margin-right: 0.75rem;"></i> Expertise reconnue en critique d'ouvrages majeurs</li>
+                            <li style="margin-bottom: 0.35rem; font-size: 0.7rem;"><i class="fas fa-check-circle" style="color: #0070FF; margin-right: 0.5rem;"></i> Vulgarisation littéraire africaine</li>
+                            <li style="margin-bottom: 0.35rem; font-size: 0.7rem;"><i class="fas fa-check-circle" style="color: #0070FF; margin-right: 0.5rem;"></i> Interface institutions-public</li>
+                            <li style="font-size: 0.7rem;"><i class="fas fa-check-circle" style="color: #0070FF; margin-right: 0.5rem;"></i> Critique d'ouvrages majeurs</li>
                         </ul>
-                        <div style="margin-top: 1.5rem; display: inline-flex; align-items: center; gap: 0.5rem; background: white; padding: 0.75rem 1.5rem; border-radius: 100px;"><i class="fas fa-microphone-alt" style="color: #0070FF;"></i> Journaliste en studio professionnel</div>
                     </div>
-                    <div style="flex: 1; min-width: 250px;">
-                        <img src="https://images.unsplash.com/photo-1598554747436-c9293d6a588f?q=80&w=2070" alt="Studio" class="rounded-image" style="height: 320px; object-fit: cover; width: 100%;">
+                    <div style="flex: 1; min-width: 200px;">
+                        <img src="https://images.unsplash.com/photo-1598554747436-c9293d6a588f?q=80&w=2070" alt="Studio" class="rounded-image" style="height: 150px; object-fit: cover; width: 100%;">
                     </div>
                 </div>
             </div>
@@ -409,17 +395,17 @@
     <section>
         <div class="outer"><div class="inner">
             <div class="bg bg-voices">
-                <div class="section-content" style="display: flex; align-items: center; justify-content: space-between; gap: 3rem; flex-wrap: wrap;">
-                    <div style="flex: 1; min-width: 250px;">
-                        <img src="https://images.unsplash.com/photo-1515378960530-7c0da6231fb1?q=80&w=2070" alt="Interview" class="rounded-image" style="height: 320px; object-fit: cover; width: 100%;">
+                <div class="section-content" style="display: flex; align-items: center; gap: 1rem; flex-wrap: wrap;">
+                    <div style="flex: 1; min-width: 200px;">
+                        <img src="https://images.unsplash.com/photo-1515378960530-7c0da6231fb1?q=80&w=2070" alt="Interview" class="rounded-image" style="height: 150px; object-fit: cover; width: 100%;">
                     </div>
-                    <div style="flex: 1; min-width: 250px;">
-                        <i class="fas fa-comments" style="font-size: 2.5rem; color: #0070FF; margin-bottom: 1rem;"></i>
-                        <h2 style="font-size: 2rem; font-weight: 700; margin-bottom: 1rem;">La Voix des Créateurs</h2>
-                        <p style="color: #475569;">Notre mission est de mettre en lumière la richesse des expressions culturelles à travers des entretiens exclusifs.</p>
-                        <div style="margin-top: 2rem; background: white; border-radius: 20px; padding: 1.5rem;">
-                            <div style="font-size: 3rem; font-weight: 800; color: #0070FF;">100+</div>
-                            <p>auteurs, éditeurs et acteurs culturels ont déjà partagé leur vision sur notre plateau, créant une archive vivante de la pensée contemporaine.</p>
+                    <div style="flex: 1; min-width: 200px;">
+                        <i class="fas fa-comments" style="font-size: 1.5rem; color: #0070FF; margin-bottom: 0.5rem;"></i>
+                        <h2 style="font-size: 1.3rem; font-weight: 700; margin-bottom: 0.5rem;">La Voix des Créateurs</h2>
+                        <p style="color: #475569; font-size: 0.7rem;">Entretiens exclusifs avec acteurs culturels.</p>
+                        <div style="margin-top: 0.75rem; background: white; border-radius: 16px; padding: 0.75rem;">
+                            <div style="font-size: 1.8rem; font-weight: 800; color: #0070FF;">100+</div>
+                            <p style="font-size: 0.65rem;">auteurs, éditeurs ont partagé leur vision.</p>
                         </div>
                     </div>
                 </div>
@@ -427,20 +413,29 @@
         </div></div>
     </section>
 
-    <!-- SECTION 5 - IMPACT (avec Chart.js) -->
+    <!-- SECTION 5 - IMPACT -->
     <section>
         <div class="outer"><div class="inner">
             <div class="bg bg-impact">
-                <div class="section-content" style="display: flex; align-items: center; justify-content: center; flex-direction: column;">
-                    <h2 style="font-size: 2rem; font-weight: 700; margin-bottom: 2rem; text-align: center;">Impact par thématiques</h2>
-                    <div style="display: flex; flex-direction: row; flex-wrap: wrap; gap: 3rem; align-items: center; justify-content: center; width: 100%;">
-                        <div style="flex: 1; min-width: 250px; display: flex; justify-content: center;">
-                            <canvas id="thematiquesChart" width="350" height="350" style="max-width: 280px; max-height: 280px;"></canvas>
+                <div class="section-content" style="display: flex; flex-direction: column; justify-content: center;">
+                    <h2 style="font-size: 1.3rem; font-weight: 700; margin-bottom: 1rem; text-align: center;">Impact par thématiques</h2>
+                    <div style="display: flex; flex-direction: row; flex-wrap: wrap; gap: 1rem; align-items: center; justify-content: center;">
+                        <div style="flex: 1; display: flex; justify-content: center;">
+                            <canvas id="thematiquesChart" width="180" height="180" style="max-width: 150px; max-height: 150px;"></canvas>
                         </div>
-                        <div style="flex: 1; min-width: 250px;">
-                            <div style="margin-bottom: 1.5rem;"><div style="display: flex; justify-content: space-between;"><span>Littérature & Pensée</span><strong>45%</strong></div><div style="height: 8px; background: #e2e8f0; border-radius: 4px; margin-top: 0.5rem;"><div style="width: 45%; height: 100%; background: #0070FF; border-radius: 4px;"></div></div></div>
-                            <div style="margin-bottom: 1.5rem;"><div style="display: flex; justify-content: space-between;"><span>Arts & Patrimoine</span><strong>30%</strong></div><div style="height: 8px; background: #e2e8f0; border-radius: 4px; margin-top: 0.5rem;"><div style="width: 30%; height: 100%; background: #5a9eff; border-radius: 4px;"></div></div></div>
-                            <div><div style="display: flex; justify-content: space-between;"><span>Politiques Culturelles</span><strong>25%</strong></div><div style="height: 8px; background: #e2e8f0; border-radius: 4px; margin-top: 0.5rem;"><div style="width: 25%; height: 100%; background: #003c99; border-radius: 4px;"></div></div></div>
+                        <div style="flex: 1;">
+                            <div style="margin-bottom: 0.75rem;">
+                                <div style="display: flex; justify-content: space-between; font-size: 0.7rem;"><span>Littérature & Pensée</span><strong>45%</strong></div>
+                                <div style="height: 5px; background: #e2e8f0; border-radius: 4px; margin-top: 0.25rem;"><div style="width: 45%; height: 100%; background: #0070FF; border-radius: 4px;"></div></div>
+                            </div>
+                            <div style="margin-bottom: 0.75rem;">
+                                <div style="display: flex; justify-content: space-between; font-size: 0.7rem;"><span>Arts & Patrimoine</span><strong>30%</strong></div>
+                                <div style="height: 5px; background: #e2e8f0; border-radius: 4px; margin-top: 0.25rem;"><div style="width: 30%; height: 100%; background: #5a9eff; border-radius: 4px;"></div></div>
+                            </div>
+                            <div>
+                                <div style="display: flex; justify-content: space-between; font-size: 0.7rem;"><span>Politiques Culturelles</span><strong>25%</strong></div>
+                                <div style="height: 5px; background: #e2e8f0; border-radius: 4px; margin-top: 0.25rem;"><div style="width: 25%; height: 100%; background: #003c99; border-radius: 4px;"></div></div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -448,24 +443,24 @@
         </div></div>
     </section>
 
-    <!-- SECTION 6 - PARCOURS & PRESS-BOOK -->
+    <!-- SECTION 6 - PARCOURS -->
     <section>
         <div class="outer"><div class="inner">
             <div class="bg bg-journey">
-                <div class="section-content" style="display: flex; flex-direction: column; justify-content: center; min-height: 100vh;">
-                    <h2 style="font-size: 2rem; font-weight: 700; color: white; margin-bottom: 2rem; display: flex; align-items: center; gap: 0.75rem; flex-wrap: wrap;"><i class="fas fa-timeline" style="color: #0070FF;"></i> Parcours & Press-Book</h2>
-                    <div class="timeline-grid" style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; margin-bottom: 2rem;">
-                        <div class="timeline-card"><i class="fas fa-graduation-cap" style="font-size: 1.5rem; color: #0070FF;"></i><h3 style="color: white; margin: 0.75rem 0 0.5rem; font-size: 1.1rem;">Formation</h3><p style="color: #94a3b8; font-size: 0.875rem;">Journalisme spécialisé en enjeux culturels</p></div>
-                        <div class="timeline-card"><i class="fas fa-tv" style="font-size: 1.5rem; color: #0070FF;"></i><h3 style="color: white; margin: 0.75rem 0 0.5rem; font-size: 1.1rem;">RTS - Kenkeliba</h3><p style="color: #94a3b8; font-size: 0.875rem;">Référence nationale, 6 ans d'antenne</p></div>
-                        <div class="timeline-card"><i class="fas fa-podcast" style="font-size: 1.5rem; color: #0070FF;"></i><h3 style="color: white; margin: 0.75rem 0 0.5rem; font-size: 1.1rem;">Production</h3><p style="color: #94a3b8; font-size: 0.875rem;">Émission indépendante [Nom]</p></div>
-                        <div class="timeline-card"><i class="fas fa-globe" style="font-size: 1.5rem; color: #0070FF;"></i><h3 style="color: white; margin: 0.75rem 0 0.5rem; font-size: 1.1rem;">Rayonnement</h3><p style="color: #94a3b8; font-size: 0.875rem;">Partenariats internationaux</p></div>
+                <div class="section-content" style="display: flex; flex-direction: column; justify-content: center;">
+                    <h2 style="font-size: 1.3rem; font-weight: 700; color: white; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem;"><i class="fas fa-timeline" style="color: #0070FF;"></i> Parcours & Press-Book</h2>
+                    <div class="timeline-grid" style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 0.5rem; margin-bottom: 1rem;">
+                        <div class="timeline-card"><i class="fas fa-graduation-cap" style="font-size: 1rem; color: #0070FF;"></i><h3 style="color: white; margin: 0.35rem 0; font-size: 0.7rem;">Formation</h3><p style="color: #94a3b8; font-size: 0.55rem;">Journalisme culturel</p></div>
+                        <div class="timeline-card"><i class="fas fa-tv" style="font-size: 1rem; color: #0070FF;"></i><h3 style="color: white; margin: 0.35rem 0; font-size: 0.7rem;">RTS - Kenkeliba</h3><p style="color: #94a3b8; font-size: 0.55rem;">Référence nationale</p></div>
+                        <div class="timeline-card"><i class="fas fa-podcast" style="font-size: 1rem; color: #0070FF;"></i><h3 style="color: white; margin: 0.35rem 0; font-size: 0.7rem;">Production</h3><p style="color: #94a3b8; font-size: 0.55rem;">Émission [Nom]</p></div>
+                        <div class="timeline-card"><i class="fas fa-globe" style="font-size: 1rem; color: #0070FF;"></i><h3 style="color: white; margin: 0.35rem 0; font-size: 0.7rem;">Rayonnement</h3><p style="color: #94a3b8; font-size: 0.55rem;">Partenariats</p></div>
                     </div>
                     <div class="kpi-card">
                         <div class="kpi-grid" style="display: grid; grid-template-columns: repeat(4, 1fr); text-align: center;">
-                            <div><div style="font-size: 2rem; font-weight: 800;">100+</div><div style="font-size: 0.8rem;">Entretiens</div></div>
-                            <div><div style="font-size: 2rem; font-weight: 800;">80+</div><div style="font-size: 0.8rem;">Critiques</div></div>
-                            <div><div style="font-size: 2rem; font-weight: 800;">15+</div><div style="font-size: 0.8rem;">Partenariats</div></div>
-                            <div><div style="font-size: 2rem; font-weight: 800;">12</div><div style="font-size: 0.8rem;">Pays</div></div>
+                            <div><div style="font-size: 1.2rem; font-weight: 800;">100+</div><div style="font-size: 0.55rem;">Entretiens</div></div>
+                            <div><div style="font-size: 1.2rem; font-weight: 800;">80+</div><div style="font-size: 0.55rem;">Critiques</div></div>
+                            <div><div style="font-size: 1.2rem; font-weight: 800;">15+</div><div style="font-size: 0.55rem;">Partenariats</div></div>
+                            <div><div style="font-size: 1.2rem; font-weight: 800;">12</div><div style="font-size: 0.55rem;">Pays</div></div>
                         </div>
                     </div>
                 </div>
@@ -478,12 +473,12 @@
         <div class="outer"><div class="inner">
             <div class="bg bg-contact">
                 <div class="section-content" style="display: flex; align-items: center; justify-content: center; flex-direction: column; text-align: center;">
-                    <i class="fas fa-hands-helping" style="font-size: 3rem; color: #0070FF; margin-bottom: 1rem;"></i>
-                    <h2 style="font-size: 2.5rem; font-weight: 700; margin-bottom: 1rem;">Collaborons pour la Culture</h2>
-                    <p style="max-width: 600px; color: #475569; margin-bottom: 2rem;">Une expertise média au service des priorités de l'UNESCO : bibliodiversité, dialogue interculturel et industries créatives.</p>
-                    <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
-                        <div style="background: white; padding: 0.75rem 1.5rem; border-radius: 100px; box-shadow: 0 4px 12px rgba(0,0,0,0.08);"><i class="far fa-envelope" style="color: #0070FF; margin-right: 0.5rem;"></i> contact@livredialogue.unesco</div>
-                        <div style="background: white; padding: 0.75rem 1.5rem; border-radius: 100px; box-shadow: 0 4px 12px rgba(0,0,0,0.08);"><i class="fab fa-linkedin" style="color: #0070FF; margin-right: 0.5rem;"></i> Journaliste culturelle</div>
+                    <i class="fas fa-hands-helping" style="font-size: 2rem; color: #0070FF; margin-bottom: 0.5rem;"></i>
+                    <h2 style="font-size: 1.3rem; font-weight: 700; margin-bottom: 0.5rem;">Collaborons pour la Culture</h2>
+                    <p style="max-width: 600px; color: #475569; margin-bottom: 1rem; font-size: 0.7rem;">Une expertise média au service des priorités de l'UNESCO.</p>
+                    <div style="display: flex; gap: 0.75rem; justify-content: center; flex-wrap: wrap;">
+                        <div style="background: white; padding: 0.4rem 1rem; border-radius: 100px; font-size: 0.65rem;"><i class="far fa-envelope" style="color: #0070FF; margin-right: 0.35rem;"></i> contact@livredialogue.unesco</div>
+                        <div style="background: white; padding: 0.4rem 1rem; border-radius: 100px; font-size: 0.65rem;"><i class="fab fa-linkedin" style="color: #0070FF; margin-right: 0.35rem;"></i> Journaliste culturelle</div>
                     </div>
                 </div>
             </div>
@@ -491,7 +486,6 @@
     </section>
 
     <script>
-        // GSAP Scroll Observer - navigation fluide entre sections (SCROLL NORMAL: vers le bas = section suivante)
         gsap.registerPlugin(Observer);
 
         let sections = document.querySelectorAll("section"),
@@ -504,7 +498,6 @@
 
         let clamp = gsap.utils.clamp(0, sections.length - 1);
 
-        // Initialisation des positions
         gsap.set(outerWrappers, { yPercent: 100 });
         gsap.set(innerWrappers, { yPercent: -100 });
 
@@ -513,20 +506,17 @@
             if (index === currentIndex || animating) return;
             
             animating = true;
-            let fromTop = direction === -1,
-                dFactor = fromTop ? -1 : 1,
+            let dFactor = direction === -1 ? -1 : 1,
                 tl = gsap.timeline({
-                    defaults: { duration: 0.9, ease: "power2.inOut" },
+                    defaults: { duration: 0.8, ease: "power2.inOut" },
                     onComplete: () => { animating = false; }
                 });
             
-            // Mise à jour des dots desktop
             dots.forEach((dot, i) => {
                 if (i === index) dot.classList.add("active");
                 else dot.classList.remove("active");
             });
             
-            // Mise à jour des dots mobile
             document.querySelectorAll('.mobile-dot').forEach((dot, i) => {
                 if (i === index) dot.classList.add("active");
                 else dot.classList.remove("active");
@@ -548,17 +538,15 @@
             return tl;
         }
 
-        // Observer pour la molette - SCROLL NORMAL: vers le bas = +1, vers le haut = -1
         Observer.create({
             type: "wheel, touch",
             wheelSpeed: -1,
-            onDown: () => { if (!animating) gotoSection(currentIndex + 1, 1); },   // scroll vers le bas = section suivante
-            onUp: () => { if (!animating) gotoSection(currentIndex - 1, -1); },   // scroll vers le haut = section précédente
+            onDown: () => { if (!animating) gotoSection(currentIndex + 1, 1); },
+            onUp: () => { if (!animating) gotoSection(currentIndex - 1, -1); },
             tolerance: 50,
             preventDefault: true
         });
 
-        // Navigation par clic sur les dots desktop
         dots.forEach((dot, idx) => {
             dot.addEventListener("click", () => {
                 if (!animating && idx !== currentIndex) {
@@ -568,7 +556,6 @@
             });
         });
 
-        // Création de la pagination mobile
         const mobilePagination = document.getElementById('mobilePagination');
         for (let i = 0; i < sections.length; i++) {
             const mobileDot = document.createElement('div');
@@ -582,31 +569,28 @@
             mobilePagination.appendChild(mobileDot);
         }
 
-        // Démarrage à la première section
         gotoSection(0, 1).progress(1);
 
-        // Chart.js - graphique immédiat
         document.addEventListener('DOMContentLoaded', function() {
             const canvas = document.getElementById('thematiquesChart');
             if (canvas) {
                 new Chart(canvas, {
                     type: 'doughnut',
                     data: {
-                        labels: ['Littérature & Pensée', 'Arts & Patrimoine', 'Politiques Culturelles'],
+                        labels: ['Littérature', 'Arts', 'Politiques'],
                         datasets: [{
                             data: [45, 30, 25],
                             backgroundColor: ['#0070FF', '#5a9eff', '#003c99'],
                             borderColor: '#ffffff',
                             borderWidth: 2,
-                            borderRadius: 8,
-                            cutout: '60%'
+                            borderRadius: 6,
+                            cutout: '55%'
                         }]
                     },
                     options: {
                         responsive: true,
                         maintainAspectRatio: true,
-                        animation: { duration: 500 },
-                        plugins: { legend: { position: 'bottom', labels: { font: { size: 11 } } } }
+                        plugins: { legend: { position: 'bottom', labels: { font: { size: 9 } } } }
                     }
                 });
             }
