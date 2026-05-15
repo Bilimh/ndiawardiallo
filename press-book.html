@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>Press-Book | Le Livre & Dialogue Interculturel — UNESCO</title>
+    <!-- Tailwind CSS + Font Awesome + Google Fonts + Chart.js + GSAP (lightning fast) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * { font-family: 'Inter', sans-serif; }
+        body { background: #f5f9ff; scroll-behavior: smooth; }
+        .section-divider {
+            height: 2px;
+            background: linear-gradient(90deg, transparent, #a0c4ff, #0070FF, #a0c4ff, transparent);
+            width: 100%;
+            margin: 2.5rem 0;
+        }
+        .subtle-shadow { box-shadow: 0 4px 12px -4px rgba(0,112,255,0.06); }
+        .pillar-card { 
+            transition: all 0.15s ease; 
+            border-bottom: 2px solid #e0edff;
+        }
+        .pillar-card:hover { border-bottom-color: #0070FF; transform: translateY(-2px); }
+        .stat-card {
+            background: linear-gradient(135deg, #1a2a4f 0%, #0f1a32 100%);
+        }
+        .btn-outline-blue {
+            border: 1px solid #0070FF;
+            transition: all 0.15s;
+        }
+        .btn-outline-blue:hover {
+            background: #0070FF;
+            color: white;
+        }
+        /* Pas d'état caché par défaut — on applique l'animation instantanément via GSAP sans délais visibles */
+        .animate-fast {
+            opacity: 1;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation ultra légère -->
+    <div class="max-w-6xl mx-auto px-5 sm:px-8 pt-6 pb-2">
+        <div class="flex justify-between items-center border-b border-blue-200/40 pb-3 flex-wrap gap-2">
+            <div class="flex items-center gap-2">
+                <i class="fas fa-feather-alt text-[#0070FF] text-xl"></i>
+                <span class="font-medium text-stone-600 tracking-tight text-sm">Press-Book · Dialogue Interculturel</span>
+            </div>
+            <div class="text-xs text-stone-400"><i class="far fa-file-alt mr-1"></i> Dossier stratégique — Secteur Culture UNESCO</div>
+        </div>
+    </div>
+
+    <main class="max-w-6xl mx-auto px-5 sm:px-8 py-10 md:py-14">
+
+        <!-- ===== SECTION HÉRO ===== -->
+        <div class="hero-section mb-16">
+            <div class="flex flex-col md:flex-row gap-8 items-start">
+                <div class="flex-1">
+                    <div class="inline-flex items-center gap-2 bg-blue-100/60 text-[#0070FF] px-4 py-1.5 rounded-full text-sm font-medium mb-5">
+                        <i class="fas fa-microphone-alt"></i> Journaliste culturelle · RTS / Kenkeliba
+                    </div>
+                    <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-stone-800 leading-tight tracking-tight">Le Livre &<br>Dialogue Interculturel</h1>
+                    <p class="text-lg text-stone-600 mt-5 pl-4 border-l-4 border-[#0070FF]">Médiation médiatique & préservation de la diversité culturelle</p>
+                    <div class="flex flex-wrap gap-3 mt-7">
+                        <span class="bg-white/80 rounded-full px-4 py-2 text-sm shadow-sm"><i class="fas fa-newspaper text-[#0070FF] mr-1"></i> Décryptage littéraire</span>
+                        <span class="bg-white/80 rounded-full px-4 py-2 text-sm shadow-sm"><i class="fas fa-university text-[#0070FF] mr-1"></i> UNESCO 2005</span>
+                        <span class="bg-white/80 rounded-full px-4 py-2 text-sm shadow-sm"><i class="fas fa-globe-africa text-[#0070FF] mr-1"></i> Bibliodiversité</span>
+                    </div>
+                </div>
+                <div class="flex-1 bg-blue-50/50 rounded-2xl p-6 border border-blue-100 subtle-shadow">
+                    <i class="fas fa-quote-left text-blue-300 text-3xl mb-2 block opacity-70"></i>
+                    <p class="text-stone-700 text-lg font-medium italic">"La culture n'est pas un luxe, c'est une nécessité vitale pour la construction de sociétés résilientes et éclairées."</p>
+                    <p class="text-right text-[#0070FF] text-sm font-semibold mt-4">— Vision portée par l’émission [Nom]</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="section-divider"></div>
+
+        <!-- ===== CONCEPT & MISSION ===== -->
+        <div class="grid md:grid-cols-2 gap-8 mb-16">
+            <div class="concept-card bg-white rounded-2xl p-6 subtle-shadow border border-blue-50">
+                <i class="fas fa-lightbulb text-[#0070FF] text-2xl mb-3 block"></i>
+                <h2 class="text-xl font-bold text-stone-800 mb-2">Concept Éditorial</h2>
+                <p class="text-stone-600 leading-relaxed">Une plateforme de décryptage littéraire qui transforme l'actualité des livres en enjeux de société. Approche critique, profondeur et recul sur les œuvres.</p>
+            </div>
+            <div class="mission-card bg-white rounded-2xl p-6 subtle-shadow border border-blue-50">
+                <i class="fas fa-flag-checkered text-[#0070FF] text-2xl mb-3 block"></i>
+                <h2 class="text-xl font-bold text-stone-800 mb-2">Mission Institutionnelle</h2>
+                <p class="text-stone-600">Promouvoir la bibliodiversité et garantir l'accès à la pensée contemporaine, en adéquation avec la <span class="font-semibold text-[#0070FF]">Convention UNESCO 2005</span> sur la diversité des expressions culturelles.</p>
+            </div>
+        </div>
+
+        <div class="section-divider"></div>
+
+        <!-- ===== 1. EXPERTISE RTS / KENKELIBA + IMAGE ===== -->
+        <div class="grid md:grid-cols-2 gap-10 items-center mb-16">
+            <div class="order-2 md:order-1">
+                <div class="flex items-center gap-3 mb-4">
+                    <i class="fas fa-tv text-[#0070FF] text-2xl"></i>
+                    <h2 class="text-2xl font-bold text-stone-800">Expertise RTS / Kenkeliba</h2>
+                </div>
+                <p class="text-stone-600 mb-4 leading-relaxed">Forte d'une expérience de plusieurs années au sein de la chaîne nationale RTS (Kenkeliba), j'ai bâti une relation de confiance avec le public.</p>
+                <ul class="space-y-2 text-stone-700">
+                    <li class="flex gap-2"><i class="fas fa-check-circle text-[#0070FF] mt-1"></i> Vulgarisation de la pensée littéraire africaine</li>
+                    <li class="flex gap-2"><i class="fas fa-check-circle text-[#0070FF] mt-1"></i> Interface entre institutions et grand public</li>
+                    <li class="flex gap-2"><i class="fas fa-check-circle text-[#0070FF] mt-1"></i> Expertise reconnue en critique d'ouvrages majeurs</li>
+                </ul>
+                <div class="mt-6 bg-blue-50/50 rounded-xl px-5 py-2 inline-flex items-center gap-2"><i class="fas fa-microphone-alt text-[#0070FF]"></i><span class="text-sm font-medium">Journaliste en studio professionnel</span></div>
+            </div>
+            <div class="order-1 md:order-2">
+                <img src="https://picsum.photos/id/20/600/400" alt="Studio journalisme culturel" class="rounded-2xl shadow-md w-full object-cover h-64 md:h-72" style="object-fit: cover;">
+                <p class="text-xs text-stone-400 mt-2 text-center">© image studio média · illustration libre de droit</p>
+            </div>
+        </div>
+
+        <div class="section-divider"></div>
+
+        <!-- ===== 2. LA VOIX DES CRÉATEURS + IMAGE ===== -->
+        <div class="grid md:grid-cols-2 gap-10 items-center mb-16">
+            <div>
+                <img src="https://picsum.photos/id/147/600/400" alt="Entretien avec un auteur" class="rounded-2xl shadow-md w-full object-cover h-64 md:h-72">
+                <p class="text-xs text-stone-400 mt-2 text-center">© entretien littéraire · création ouverte</p>
+            </div>
+            <div>
+                <div class="flex items-center gap-3 mb-4">
+                    <i class="fas fa-comments text-[#0070FF] text-2xl"></i>
+                    <h2 class="text-2xl font-bold text-stone-800">La Voix des Créateurs</h2>
+                </div>
+                <p class="text-stone-600 leading-relaxed">Notre mission est de mettre en lumière la richesse des expressions culturelles à travers des entretiens exclusifs.</p>
+                <div class="mt-6 bg-blue-50/50 p-6 rounded-xl border border-blue-100 subtle-shadow">
+                    <div class="text-3xl font-bold text-[#0070FF]">100+</div>
+                    <p class="text-stone-600 text-sm mt-1">auteurs, éditeurs et acteurs culturels ont déjà partagé leur vision sur notre plateau, créant une archive vivante de la pensée contemporaine.</p>
+                    <i class="fas fa-archive text-stone-400 mt-3 inline-block"></i>
+                </div>
+            </div>
+        </div>
+
+        <div class="section-divider"></div>
+
+        <!-- ===== PILIERS CARTES ===== -->
+        <div class="mb-16">
+            <div class="text-center mb-8">
+                <i class="fas fa-gem text-[#0070FF] text-2xl"></i>
+                <h2 class="text-2xl font-bold text-stone-800 mt-2">Piliers de la démarche</h2>
+                <div class="w-16 h-0.5 bg-[#0070FF] opacity-40 mx-auto mt-2"></div>
+            </div>
+            <div class="grid md:grid-cols-3 gap-6">
+                <div class="bg-white p-6 rounded-xl subtle-shadow pillar-card">
+                    <i class="fas fa-balance-scale text-2xl text-[#0070FF] mb-3"></i>
+                    <h3 class="text-lg font-bold">Rigueur</h3>
+                    <p class="text-stone-500 text-sm">Éthique journalistique stricte, information culturelle de haute qualité.</p>
+                </div>
+                <div class="bg-white p-6 rounded-xl subtle-shadow pillar-card">
+                    <i class="fas fa-globe-africa text-2xl text-[#0070FF] mb-3"></i>
+                    <h3 class="text-lg font-bold">Diversité</h3>
+                    <p class="text-stone-500 text-sm">Promotion active des langues et cultures du continent africain.</p>
+                </div>
+                <div class="bg-white p-6 rounded-xl subtle-shadow pillar-card">
+                    <i class="fas fa-graduation-cap text-2xl text-[#0070FF] mb-3"></i>
+                    <h3 class="text-lg font-bold">Éducation</h3>
+                    <p class="text-stone-500 text-sm">Soutien aux politiques d'alphabétisation et éducation aux médias.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="section-divider"></div>
+
+        <!-- ===== IMPACT PAR THÉMATIQUES + CHART.JS (instantané) ===== -->
+        <div class="bg-white rounded-2xl p-6 md:p-8 subtle-shadow mb-16 border border-blue-50">
+            <div class="text-center mb-6">
+                <i class="fas fa-chart-pie text-[#0070FF] text-2xl"></i>
+                <h2 class="text-2xl font-bold text-stone-800 mt-1">Impact par thématiques</h2>
+                <p class="text-stone-400 text-sm">Répartition stratégique des contenus</p>
+            </div>
+            <div class="grid md:grid-cols-2 gap-8 items-center">
+                <div>
+                    <canvas id="thematiquesChart" width="400" height="400" class="max-w-full mx-auto"></canvas>
+                </div>
+                <div class="space-y-4">
+                    <div class="flex items-center gap-3"><span class="w-4 h-4 rounded-full bg-[#0070FF]"></span><span class="font-medium">Littérature & Pensée</span><span class="ml-auto font-bold">45%</span></div>
+                    <div class="w-full bg-stone-100 rounded-full h-2"><div class="bg-[#0070FF] h-2 rounded-full" style="width:45%"></div></div>
+                    <div class="flex items-center gap-3"><span class="w-4 h-4 rounded-full bg-[#5a9eff]"></span><span class="font-medium">Arts & Patrimoine</span><span class="ml-auto font-bold">30%</span></div>
+                    <div class="w-full bg-stone-100 rounded-full h-2"><div class="bg-[#5a9eff] h-2 rounded-full" style="width:30%"></div></div>
+                    <div class="flex items-center gap-3"><span class="w-4 h-4 rounded-full bg-[#003c99]"></span><span class="font-medium">Politiques Culturelles</span><span class="ml-auto font-bold">25%</span></div>
+                    <div class="w-full bg-stone-100 rounded-full h-2"><div class="bg-[#003c99] h-2 rounded-full" style="width:25%"></div></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ===== RENCONTRES CLÉS ===== -->
+        <div class="mb-16">
+            <h2 class="text-2xl font-bold text-stone-800 flex items-center gap-2 mb-5"><i class="fas fa-handshake text-[#0070FF]"></i> Rencontres clés & publics</h2>
+            <div class="overflow-x-auto rounded-xl border border-blue-100 bg-white">
+                <table class="min-w-full text-sm">
+                    <thead class="bg-blue-50/50 text-stone-600">
+                        <tr><th class="px-5 py-3 text-left">Catégorie</th><th class="px-5 py-3 text-left">Impact stratégique</th><th class="px-5 py-3 text-left">Public cible</th></tr>
+                    </thead>
+                    <tbody class="divide-y">
+                        <tr><td class="px-5 py-3 font-medium">Auteurs & Académiques</td><td class="px-5 py-3">Diffusion des connaissances fondamentales</td><td class="px-5 py-3">Étudiants, Chercheurs</td></tr>
+                        <tr><td class="px-5 py-3 font-medium">Décideurs & Diplomates</td><td class="px-5 py-3">Plaidoyer pour les politiques culturelles</td><td class="px-5 py-3">Institutions, ONG</td></tr>
+                        <tr><td class="px-5 py-3 font-medium">Éditeurs & Libraires</td><td class="px-5 py-3">Soutien aux industries créatives locales</td><td class="px-5 py-3">Professionnels du livre</td></tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="mt-3 text-stone-400 text-sm"><i class="fas fa-chart-line mr-1"></i> Audience équilibrée, éducative & institutionnelle</div>
+        </div>
+
+        <div class="section-divider"></div>
+
+        <!-- ===== PARCOURS & PRESS-BOOK (stylé avec dégradé bleu) ===== -->
+        <div class="mb-16 relative">
+            <div class="absolute -top-6 left-0 w-32 h-32 bg-blue-200/20 rounded-full blur-2xl -z-0"></div>
+            <div class="relative z-2">
+                <div class="flex flex-wrap items-center justify-between gap-2 mb-8">
+                    <h2 class="text-3xl font-bold text-stone-800 flex items-center gap-2"><i class="fas fa-timeline text-[#0070FF] text-3xl"></i> Parcours & Press-Book</h2>
+                    <span class="bg-blue-100 text-[#0070FF] text-xs px-3 py-1 rounded-full"><i class="far fa-star"></i> Carrière dédiée à la culture</span>
+                </div>
+
+                <!-- Timeline design -->
+                <div class="grid md:grid-cols-4 gap-4 mb-10">
+                    <div class="bg-white p-5 rounded-xl subtle-shadow border-l-4 border-[#0070FF]">
+                        <i class="fas fa-graduation-cap text-[#0070FF] text-xl mb-2 block"></i>
+                        <p class="font-bold text-stone-800">Formation</p>
+                        <p class="text-sm text-stone-500">Journalisme spécialisé en enjeux culturels, mention excellence.</p>
+                    </div>
+                    <div class="bg-white p-5 rounded-xl subtle-shadow border-l-4 border-[#0070FF]">
+                        <i class="fas fa-tv text-[#0070FF] text-xl mb-2 block"></i>
+                        <p class="font-bold text-stone-800">RTS - Kenkeliba</p>
+                        <p class="text-sm text-stone-500">Référence nationale pour les chroniques littéraires, 6 ans d'antenne.</p>
+                    </div>
+                    <div class="bg-white p-5 rounded-xl subtle-shadow border-l-4 border-[#0070FF]">
+                        <i class="fas fa-podcast text-[#0070FF] text-xl mb-2 block"></i>
+                        <p class="font-bold text-stone-800">Production</p>
+                        <p class="text-sm text-stone-500">Lancement de l'émission indépendante [Nom] – plateforme dédiée au dialogue des lettres.</p>
+                    </div>
+                    <div class="bg-white p-5 rounded-xl subtle-shadow border-l-4 border-[#0070FF]">
+                        <i class="fas fa-globe text-[#0070FF] text-xl mb-2 block"></i>
+                        <p class="font-bold text-stone-800">Rayonnement</p>
+                        <p class="text-sm text-stone-500">Partenariats avec foires internationales, résidences d’écriture et forums UNESCO.</p>
+                    </div>
+                </div>
+
+                <!-- KPI / STATS version bleue -->
+                <div class="stat-card rounded-2xl p-6 text-white shadow-lg">
+                    <div class="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+                        <div><i class="fas fa-microphone-alt text-blue-300 text-2xl mb-2 block"></i><span class="text-2xl font-bold">100+</span><p class="text-xs text-blue-200">entretiens auteurs</p></div>
+                        <div><i class="fas fa-book text-blue-300 text-2xl mb-2 block"></i><span class="text-2xl font-bold">80+</span><p class="text-xs text-blue-200">critiques littéraires</p></div>
+                        <div><i class="fas fa-building-columns text-blue-300 text-2xl mb-2 block"></i><span class="text-2xl font-bold">15+</span><p class="text-xs text-blue-200">partenariats institutionnels</p></div>
+                        <div><i class="fas fa-globe-africa text-blue-300 text-2xl mb-2 block"></i><span class="text-2xl font-bold">12</span><p class="text-xs text-blue-200">pays représentés</p></div>
+                    </div>
+                </div>
+
+                <!-- Archive vivante -->
+                <div class="flex flex-wrap gap-4 justify-between items-center mt-8 bg-blue-50/40 p-5 rounded-xl border border-blue-100">
+                    <div class="flex items-center gap-2"><i class="fas fa-archive text-[#0070FF]"></i><span class="font-medium">Archive vivante de la pensée contemporaine</span></div>
+                    <div class="flex items-center gap-2"><i class="fas fa-certificate text-[#0070FF]"></i><span class="text-sm">Label d’expertise culturelle — référente UNESCO secteur culture</span></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section-divider"></div>
+
+        <!-- ===== APPEL FINAL ===== -->
+        <div class="bg-gradient-to-r from-blue-50 to-white rounded-2xl p-8 mb-10 border border-blue-200 subtle-shadow">
+            <div class="flex flex-col md:flex-row justify-between items-center gap-6">
+                <div>
+                    <h3 class="text-2xl font-bold text-stone-800 flex items-center gap-2"><i class="fas fa-hands-helping text-[#0070FF]"></i> Collaborons pour la Culture</h3>
+                    <p class="text-stone-600 max-w-xl mt-1">Une expertise média au service des priorités de l'UNESCO : bibliodiversité, dialogue interculturel et industries créatives.</p>
+                    <div class="flex gap-3 mt-4 text-sm text-[#0070FF]"><i class="far fa-envelope"></i> contact@livredialogue.unesco · <i class="fab fa-linkedin"></i> Journaliste culturelle</div>
+                </div>
+                <div class="bg-white px-6 py-3 rounded-full shadow-sm btn-outline-blue"><i class="fas fa-arrow-right text-[#0070FF] mr-2"></i><span class="font-semibold">Disponible pour conférences & masterclass</span></div>
+            </div>
+        </div>
+
+        <div class="text-center text-stone-400 text-xs pt-6 border-t border-stone-200 mt-4">Press-Book professionnel — Le Livre & Dialogue Interculturel — conçu pour rayonnement institutionnel & médias</div>
+
+    </main>
+
+    <script>
+        // Initialisation GSAP avec ScrollTrigger - animations ultra rapides (0.2s, délai 0.02)
+        gsap.registerPlugin(ScrollTrigger);
+        
+        // Animation immédiate et ultra rapide pour chaque bloc au scroll
+        const sections = document.querySelectorAll('.hero-section, .concept-card, .mission-card, .grid.md\\:grid-cols-2, .bg-white.rounded-xl, .pillar-card, .bg-white.rounded-2xl, .stat-card, .bg-gradient-to-r');
+        
+        // Sélection plus précise des éléments à animer
+        const animateElements = [
+            '.hero-section', '.concept-card', '.mission-card',
+            '.grid.md\\:grid-cols-2 > div', '.pillar-card',
+            '#thematiquesChart', '.stat-card', '.bg-gradient-to-r'
+        ];
+        
+        // Animation rapide sur tous les blocs principaux
+        gsap.utils.toArray('.hero-section, .concept-card, .mission-card, .pillar-card, .stat-card, .bg-gradient-to-r, .grid.md\\:grid-cols-2.gap-10 > div, .grid.md\\:grid-cols-2.gap-8 > div, .bg-white.rounded-2xl').forEach((el) => {
+            gsap.fromTo(el, 
+                { opacity: 0, y: 12 },
+                { 
+                    opacity: 1, 
+                    y: 0, 
+                    duration: 0.2,      // 200 millisecondes seulement
+                    delay: 0.01,
+                    scrollTrigger: {
+                        trigger: el,
+                        start: "top 95%",
+                        toggleActions: "play none none reverse",
+                        fastScrollEnd: true   // évite les recalcs
+                    }
+                }
+            );
+        });
+        
+        // Animation spécifique pour les images (très légère)
+        gsap.utils.toArray('img').forEach((img) => {
+            gsap.fromTo(img, 
+                { opacity: 0, scale: 0.98 },
+                { 
+                    opacity: 1, 
+                    scale: 1, 
+                    duration: 0.18,
+                    scrollTrigger: {
+                        trigger: img,
+                        start: "top 92%",
+                        toggleActions: "play none none reverse"
+                    }
+                }
+            );
+        });
+        
+        // Chart.js instanciation immédiate (sans délai)
+        document.addEventListener('DOMContentLoaded', function () {
+            const canvas = document.getElementById('thematiquesChart');
+            if (canvas) {
+                const ctx = canvas.getContext('2d');
+                new Chart(ctx, {
+                    type: 'doughnut',
+                    data: {
+                        labels: ['Littérature & Pensée', 'Arts & Patrimoine', 'Politiques Culturelles'],
+                        datasets: [{
+                            data: [45, 30, 25],
+                            backgroundColor: ['#0070FF', '#5a9eff', '#003c99'],
+                            borderColor: '#ffffff',
+                            borderWidth: 2,
+                            borderRadius: 8,
+                            spacing: 4,
+                            cutout: '60%'
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: true,
+                        animation: {
+                            duration: 400,     // animation du graphique rapide mais fluide
+                            easing: 'easeOutQuad'
+                        },
+                        plugins: {
+                            legend: { position: 'bottom', labels: { font: { size: 12 }, usePointStyle: true, boxWidth: 10, color: '#1e293b' } },
+                            tooltip: { callbacks: { label: (ctx) => `${ctx.label}: ${ctx.raw}%` } }
+                        }
+                    }
+                });
+            }
+        });
+        
+        // Forcer l'affichage initial sans délai (pas de classe cachée)
+        window.addEventListener('load', function() {
+            gsap.set('.hero-section, .concept-card, .mission-card, .pillar-card', { opacity: 1 });
+        });
+    </script>
+</body>
+</html>
