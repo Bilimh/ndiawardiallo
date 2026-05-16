@@ -51,6 +51,34 @@ section{
   scroll-snap-stop:always;
 }
 
+html{
+  scroll-behavior:smooth;
+}
+
+/* Scroll snap uniquement tablette / desktop */
+@media(min-width:768px){
+  html{
+    scroll-snap-type:y mandatory;
+  }
+
+  section{
+    scroll-snap-align:start;
+    scroll-snap-stop:always;
+  }
+}
+
+/* Mobile : scroll naturel */
+@media(max-width:767px){
+  html{
+    scroll-snap-type:none;
+  }
+
+  section{
+    scroll-snap-align:none;
+    scroll-snap-stop:normal;
+  }
+}
+
 .section-content{
   width:100%;
   max-width:1400px;
