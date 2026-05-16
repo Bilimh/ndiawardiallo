@@ -14,7 +14,7 @@
 
         body {
             font-family: 'Space Grotesk', sans-serif;
-            background: #F4F7FC;
+            background: #E8EEF6;
             color: #1A2C3E;
             overflow-x: hidden;
         }
@@ -46,28 +46,30 @@
         }
         .section-content { max-width: 1400px; width: 100%; margin: 0 auto; }
 
-        /* Fonds clairs avec dégradés subtils */
-        .gradient-bg-1 { background: linear-gradient(135deg, #F8FAFE 0%, #EDF2F9 100%); }
-        .gradient-bg-2 { background: linear-gradient(145deg, #FFFFFF 0%, #F1F6FD 100%); }
-        .gradient-bg-3 { background: linear-gradient(125deg, #F0F5FC 0%, #FAFDFF 100%); }
-        .gradient-bg-blue { background: linear-gradient(112deg, #EAF2FA 0%, #FFFFFF 100%); }
+        /* Fonds dégradés élégants – juste milieu entre clair et foncé pour faire briller les titres */
+        .gradient-bg-1 { background: linear-gradient(135deg, #E2EAF5 0%, #D6E1EF 50%, #C9D6E8 100%); }
+        .gradient-bg-2 { background: linear-gradient(145deg, #E8EFF8 0%, #DDE6F2 100%); }
+        .gradient-bg-3 { background: linear-gradient(125deg, #E0E9F4 0%, #D3DFEE 100%); }
+        .gradient-bg-blue { background: linear-gradient(112deg, #DAE4F2 0%, #E3ECF6 100%); }
         
-        /* Texte gradient (brillant) */
+        /* Texte gradient – brillant et dynamique */
         .gradient-text {
-            background: linear-gradient(135deg, #1E6F9F, #2563EB, #38BDF8, #1E6F9F);
+            background: linear-gradient(135deg, #1E6F9F, #3B82F6, #67e8f9, #1E6F9F);
             background-size: 200% auto;
             -webkit-background-clip: text;
             background-clip: text;
             -webkit-text-fill-color: transparent;
-            animation: shimmer 4s linear infinite;
+            animation: shimmer 5s linear infinite;
         }
         @keyframes shimmer { 0% { background-position: 0% 50%; } 100% { background-position: 200% 50%; } }
 
         .gradient-text-gold {
-            background: linear-gradient(135deg, #B45309, #D97706, #F59E0B, #B45309);
+            background: linear-gradient(135deg, #B45309, #F59E0B, #FDE047, #B45309);
+            background-size: 200% auto;
             -webkit-background-clip: text;
             background-clip: text;
             -webkit-text-fill-color: transparent;
+            animation: shimmer 5s linear infinite;
         }
 
         .hero-title {
@@ -80,42 +82,44 @@
 
         .hero-sub {
             font-size: 1.15rem;
-            color: #4B5E77;
+            color: #2C3E50;
             max-width: 550px;
             margin-top: 1rem;
         }
 
         .glass-card {
-            background: rgba(255, 255, 255, 0.85);
-            backdrop-filter: blur(10px);
+            background: rgba(255, 255, 255, 0.75);
+            backdrop-filter: blur(12px);
             border-radius: 2rem;
-            border: 1px solid rgba(30, 111, 159, 0.2);
+            border: 1px solid rgba(30, 111, 159, 0.25);
             transition: all 0.3s ease;
-            box-shadow: 0 12px 35px -10px rgba(0, 0, 0, 0.08);
+            box-shadow: 0 15px 35px -12px rgba(0, 0, 0, 0.12);
         }
         .glass-card:hover {
-            border-color: rgba(30, 111, 159, 0.4);
-            box-shadow: 0 20px 40px -12px rgba(30, 111, 159, 0.15);
+            border-color: rgba(30, 111, 159, 0.5);
+            box-shadow: 0 25px 45px -12px rgba(30, 111, 159, 0.2);
             transform: translateY(-5px);
-            background: rgba(255, 255, 255, 0.95);
+            background: rgba(255, 255, 255, 0.88);
         }
 
         .badge-modern {
             display: inline-flex;
             align-items: center;
             gap: 8px;
-            background: rgba(30, 111, 159, 0.1);
-            border: 1px solid rgba(30, 111, 159, 0.25);
+            background: rgba(30, 111, 159, 0.15);
+            border: 1px solid rgba(30, 111, 159, 0.3);
             border-radius: 100px;
             padding: 0.5rem 1.2rem;
             font-size: 0.75rem;
             font-weight: 600;
             color: #1E6F9F;
             letter-spacing: 0.05em;
+            backdrop-filter: blur(4px);
         }
 
         .quote-modern {
-            background: linear-gradient(135deg, rgba(30,111,159,0.06), rgba(56,189,248,0.04));
+            background: rgba(255, 255, 255, 0.55);
+            backdrop-filter: blur(12px);
             border-left: 4px solid #1E6F9F;
             border-radius: 1.5rem;
             padding: 2rem 2rem;
@@ -124,8 +128,8 @@
             font-size: 1.2rem;
             font-style: normal;
             font-weight: 400;
-            color: #2D3A4B;
-            backdrop-filter: blur(4px);
+            color: #1A2C3E;
+            box-shadow: 0 10px 25px -8px rgba(0,0,0,0.08);
         }
 
         .stat-number-lg {
@@ -143,25 +147,25 @@
 
         .rounded-image {
             border-radius: 1.8rem;
-            box-shadow: 0 20px 35px -12px rgba(0, 0, 0, 0.12);
+            box-shadow: 0 20px 35px -12px rgba(0, 0, 0, 0.15);
             width: 100%;
             height: auto;
             object-fit: cover;
-            border: 1px solid rgba(30, 111, 159, 0.15);
+            border: 1px solid rgba(30, 111, 159, 0.2);
         }
 
         .table-wrap {
-            background: rgba(255, 255, 255, 0.85);
-            backdrop-filter: blur(8px);
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(10px);
             border-radius: 1.5rem;
             overflow-x: auto;
-            border: 1px solid rgba(30, 111, 159, 0.2);
+            border: 1px solid rgba(30, 111, 159, 0.25);
         }
         table { width: 100%; border-collapse: collapse; }
-        th { background: rgba(30, 111, 159, 0.1); color: #1E6F9F; padding: 1rem; font-weight: 700; }
-        td { padding: 1rem; border-bottom: 1px solid rgba(30, 111, 159, 0.1); color: #3A4C62; }
+        th { background: rgba(30, 111, 159, 0.15); color: #1E6F9F; padding: 1rem; font-weight: 700; }
+        td { padding: 1rem; border-bottom: 1px solid rgba(30, 111, 159, 0.12); color: #2C3E50; }
 
-        .progress-bar { background: #E2E8F0; border-radius: 20px; height: 8px; overflow: hidden; }
+        .progress-bar { background: #CBD5E1; border-radius: 20px; height: 8px; overflow: hidden; }
         .progress-fill { background: linear-gradient(90deg, #1E6F9F, #3B82F6); height: 100%; border-radius: 20px; }
 
         @media (max-width: 1000px) {
@@ -197,28 +201,110 @@
     <div class="section-content">
         <h2 class="gradient-text" style="font-size: clamp(2rem, 5vw, 2.8rem); font-weight: 700; margin-bottom: 2rem;">Double Impact Audiovisuel</h2>
         <div class="grid2">
-            <div class="glass-card" style="padding: 2rem;"><i class="fas fa-newspaper" style="font-size: 2.5rem; color: #1E6F9F;"></i><h3 style="font-size: 1.5rem; margin: 1rem 0 0.75rem; color: #1E2F3F;">Entre les Lignes</h3><p style="color: #4B5E77;">Une émission de référence dédiée aux grands entretiens avec les intellectuels et diplomates. Un espace de réflexion profonde qui soutient activement la bibliodiversité.</p></div>
-            <div class="glass-card" style="padding: 2rem;"><i class="fas fa-tv" style="font-size: 2.5rem; color: #1E6F9F;"></i><h3 style="font-size: 1.5rem; margin: 1rem 0 0.75rem; color: #1E2F3F;">Kenkeliba (RTS)</h3><p style="color: #4B5E77;">Chroniques culturelles hebdomadaires au sein de la matinale leader du Sénégal. Des interventions conçues pour démocratiser la lecture auprès d'une audience massive.</p></div>
+            <div class="glass-card" style="padding: 2rem;"><i class="fas fa-newspaper" style="font-size: 2.5rem; color: #1E6F9F;"></i><h3 style="font-size: 1.5rem; margin: 1rem 0 0.75rem; color: #1E2F3F;">Entre les Lignes</h3><p style="color: #3A4C62;">Une émission de référence dédiée aux grands entretiens avec les intellectuels et diplomates. Un espace de réflexion profonde qui soutient activement la bibliodiversité.</p></div>
+            <div class="glass-card" style="padding: 2rem;"><i class="fas fa-tv" style="font-size: 2.5rem; color: #1E6F9F;"></i><h3 style="font-size: 1.5rem; margin: 1rem 0 0.75rem; color: #1E2F3F;">Kenkeliba (RTS)</h3><p style="color: #3A4C62;">Chroniques culturelles hebdomadaires au sein de la matinale leader du Sénégal. Des interventions conçues pour démocratiser la lecture auprès d'une audience massive.</p></div>
         </div>
     </div>
 </div></div></div></section>
 
-<!-- SECTION 3 - Citation avec icônes -->
-<section><div class="outer"><div class="inner"><div class="bg gradient-bg-blue">
+<!-- SECTION 3 - Citation avec effet machine à écrire (déclenchement à la visibilité) -->
+<section id="citation-section"><div class="outer"><div class="inner"><div class="bg gradient-bg-blue">
     <div class="section-content" style="display: flex; justify-content: center;">
-        <div class="quote-modern" style="max-width: 800px; text-align: center;">
-            <i class="fas fa-quote-left" style="font-size: 2.5rem; color: #1E6F9F; opacity: 0.5; margin-bottom: 1rem; display: block;"></i>
-            <p style="font-size: 1.3rem; font-weight: 400;">"Pour moi, la lecture doit être considérée comme un bijou précieux pour chacun ; au-delà d'être une échappatoire, elle unit, inspire et instruit."</p>
-            <div style="margin-top: 1rem;"><i class="fas fa-microphone-alt" style="color: #1E6F9F; margin-right: 0.5rem;"></i> — Mame Ndiawar Diallo</div>
+        <div class="quote-modern" style="max-width: 800px; width: 100%; text-align: center;">
+            <i class="fas fa-quote-left" style="font-size: 2.5rem; color: #1E6F9F; opacity: 0.6; margin-bottom: 1.5rem; display: block;"></i>
+            <div id="typed-quote" style="font-size: 1.3rem; font-weight: 400; font-family: 'Syne', serif; min-height: 120px; width: 100%;"></div>
+            <div style="margin-top: 1.5rem;">
+                <i class="fas fa-microphone-alt" style="color: #1E6F9F; margin-right: 0.5rem;"></i>
+                <span id="typed-author" class="gradient-text" style="font-weight: 600;"></span>
+            </div>
         </div>
     </div>
 </div></div></div></section>
+
+<script>
+    (function() {
+        let animationStarted = false;
+        let quoteIndex = 0;
+        let authorIndex = 0;
+        let quoteDone = false;
+        
+        const quoteText = "Pour moi, la lecture doit être considérée comme un bijou précieux pour chacun ; au-delà d'être une échappatoire, elle unit, inspire et instruit.";
+        const authorText = "— Mame Ndiawar Diallo";
+        
+        const quoteElement = document.getElementById("typed-quote");
+        const authorElement = document.getElementById("typed-author");
+        const section = document.getElementById("citation-section");
+        
+        function typeQuote() {
+            if (quoteIndex < quoteText.length) {
+                quoteElement.innerHTML += quoteText.charAt(quoteIndex);
+                quoteIndex++;
+                setTimeout(typeQuote, 25); // Plus rapide : 25ms au lieu de 35
+            } else {
+                quoteDone = true;
+                setTimeout(typeAuthor, 200);
+            }
+        }
+        
+        function typeAuthor() {
+            if (authorIndex < authorText.length) {
+                authorElement.innerHTML += authorText.charAt(authorIndex);
+                authorIndex++;
+                setTimeout(typeAuthor, 35); // Plus rapide : 35ms
+            } else {
+                const cursor = document.createElement("span");
+                cursor.className = "cursor-blink";
+                cursor.innerHTML = " ▊";
+                cursor.style.fontWeight = "normal";
+                authorElement.appendChild(cursor);
+            }
+        }
+        
+        function resetAndStart() {
+            if (animationStarted) return;
+            animationStarted = true;
+            quoteElement.innerHTML = "";
+            authorElement.innerHTML = "";
+            quoteIndex = 0;
+            authorIndex = 0;
+            quoteDone = false;
+            typeQuote();
+        }
+        
+        // Observer pour détecter quand la section entre dans le viewport
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting && !animationStarted) {
+                    resetAndStart();
+                    observer.unobserve(section);
+                }
+            });
+        }, { threshold: 0.3 });
+        
+        observer.observe(section);
+        
+        // Style curseur clignotant
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes blink {
+                0%, 100% { opacity: 1; }
+                50% { opacity: 0; }
+            }
+            .cursor-blink {
+                animation: blink 1s step-end infinite;
+                font-weight: 300;
+                color: #1E6F9F;
+            }
+        `;
+        document.head.appendChild(style);
+    })();
+</script>
 
 <!-- SECTION 4 - 15 Ans d'Expertise Médiale (image) -->
 <section><div class="outer"><div class="inner"><div class="bg gradient-bg-3">
     <div class="section-content" style="display: flex; flex-wrap: wrap; gap: 3rem; align-items: center;">
         <div style="flex: 1;"><img src="https://images.unsplash.com/photo-1554200876-907f9286c2a1?w=800&auto=format" alt="Studio TV" class="rounded-image"></div>
-        <div style="flex: 1;"><h2 class="gradient-text" style="font-size: 2rem;">15 Ans d'Expertise Médiale</h2><p style="color: #4B5E77; margin: 1rem 0;">Une légitimité bâtie sur le terrain de la culture et de la diplomatie littéraire au Sénégal et à l'international.</p><ul style="list-style: none;"><li style="margin-bottom: 0.8rem;"><i class="fas fa-check-circle" style="color: #1E6F9F;"></i> Diplômée en communication et journalisme (ISEG).</li><li style="margin-bottom: 0.8rem;"><i class="fas fa-check-circle" style="color: #1E6F9F;"></i> Figure de référence pour la critique d'ouvrages à la RTS.</li><li><i class="fas fa-check-circle" style="color: #1E6F9F;"></i> Médiatrice clé entre créateurs et institutions publiques.</li></ul></div>
+        <div style="flex: 1;"><h2 class="gradient-text" style="font-size: 2rem;">15 Ans d'Expertise Médiale</h2><p style="color: #3A4C62; margin: 1rem 0;">Une légitimité bâtie sur le terrain de la culture et de la diplomatie littéraire au Sénégal et à l'international.</p><ul style="list-style: none;"><li style="margin-bottom: 0.8rem;"><i class="fas fa-check-circle" style="color: #1E6F9F;"></i> Diplômée en communication et journalisme (ISEG).</li><li style="margin-bottom: 0.8rem;"><i class="fas fa-check-circle" style="color: #1E6F9F;"></i> Figure de référence pour la critique d'ouvrages à la RTS.</li><li><i class="fas fa-check-circle" style="color: #1E6F9F;"></i> Médiatrice clé entre créateurs et institutions publiques.</li></ul></div>
     </div>
 </div></div></div></section>
 
@@ -226,9 +312,9 @@
 <section><div class="outer"><div class="inner"><div class="bg gradient-bg-1">
     <div class="section-content"><h2 class="gradient-text" style="font-size: 2rem;">Rayonnement International 2026</h2>
         <div class="grid3" style="margin-top: 2rem;">
-            <div class="glass-card" style="padding: 1.8rem;"><i class="fas fa-city" style="font-size: 2rem; color: #1E6F9F;"></i><h3 style="margin: 1rem 0 0.5rem;">Conakry</h3><p style="color:#4B5E77;">Invitée culturelle à la 18e édition des 72 Heures du Livre (Avril/Mai).</p></div>
-            <div class="glass-card" style="padding: 1.8rem;"><i class="fas fa-globe-europe" style="font-size: 2rem; color: #1E6F9F;"></i><h3 style="margin: 1rem 0 0.5rem;">Genève</h3><p style="color:#4B5E77;">Invitée par la Francophonie pour le Printemps et la Journée Mondiale de l'Afrique (Mai).</p></div>
-            <div class="glass-card" style="padding: 1.8rem;"><i class="fas fa-book" style="font-size: 2rem; color: #1E6F9F;"></i><h3 style="margin: 1rem 0 0.5rem;">MILA 2026</h3><p style="color:#4B5E77;">Participation au Marché de l'Industrie du Livre d'Afrique (Abidjan, Juillet).</p></div>
+            <div class="glass-card" style="padding: 1.8rem;"><i class="fas fa-city" style="font-size: 2rem; color: #1E6F9F;"></i><h3 style="margin: 1rem 0 0.5rem;">Conakry</h3><p style="color:#3A4C62;">Invitée culturelle à la 18e édition des 72 Heures du Livre (Avril/Mai).</p></div>
+            <div class="glass-card" style="padding: 1.8rem;"><i class="fas fa-globe-europe" style="font-size: 2rem; color: #1E6F9F;"></i><h3 style="margin: 1rem 0 0.5rem;">Genève</h3><p style="color:#3A4C62;">Invitée par la Francophonie pour le Printemps et la Journée Mondiale de l'Afrique (Mai).</p></div>
+            <div class="glass-card" style="padding: 1.8rem;"><i class="fas fa-book" style="font-size: 2rem; color: #1E6F9F;"></i><h3 style="margin: 1rem 0 0.5rem;">MILA 2026</h3><p style="color:#3A4C62;">Participation au Marché de l'Industrie du Livre d'Afrique (Abidjan, Juillet).</p></div>
         </div>
     </div>
 </div></div></div></section>
@@ -237,7 +323,7 @@
 <section><div class="outer"><div class="inner"><div class="bg gradient-bg-2">
     <div class="section-content" style="display: flex; flex-wrap: wrap; gap: 3rem; align-items: center; flex-direction: row-reverse;">
         <div style="flex: 1;"><img src="https://images.unsplash.com/photo-1515378960530-7c0da6231fb1?w=800&auto=format" alt="Bibliothèque" class="rounded-image"></div>
-        <div style="flex: 1;"><i class="fas fa-star" style="font-size: 2.5rem; color: #D97706;"></i><h2 class="gradient-text-gold" style="font-size: 2rem; margin: 1rem 0;">Une Voix Sollicitée</h2><p style="color:#4B5E77;">Ma crédibilité s'illustre par des invitations constantes des plus grandes instances littéraires mondiales.</p><p style="margin-top: 1rem; color:#3A4C62;">Notamment l'invitation d'honneur pour la Journée internationale du livre africain, confirmant mon rôle d'interface stratégique pour la promotion des auteurs du continent.</p></div>
+        <div style="flex: 1;"><i class="fas fa-star" style="font-size: 2.5rem; color: #D97706;"></i><h2 class="gradient-text-gold" style="font-size: 2rem; margin: 1rem 0;">Une Voix Sollicitée</h2><p style="color:#3A4C62;">Ma crédibilité s'illustre par des invitations constantes des plus grandes instances littéraires mondiales.</p><p style="margin-top: 1rem; color:#2C3E50;">Notamment l'invitation d'honneur pour la Journée internationale du livre africain, confirmant mon rôle d'interface stratégique pour la promotion des auteurs du continent.</p></div>
     </div>
 </div></div></div></section>
 
@@ -272,7 +358,7 @@
             <div class="glass-card" style="text-align: center; padding: 1.8rem; min-width: 150px;"><div class="stat-number-lg">2M+</div><div>Audience Cumulée (RTS)</div></div>
             <div class="glass-card" style="text-align: center; padding: 1.8rem; min-width: 150px;"><div class="stat-number-lg">100%</div><div>Engagement Culturel</div></div>
         </div>
-        <p style="text-align: center; color: #4B5E77;">Une présence médiatique continue garantissant une visibilité maximale aux initiatives de l'UNESCO.</p>
+        <p style="text-align: center; color: #3A4C62;">Une présence médiatique continue garantissant une visibilité maximale aux initiatives de l'UNESCO.</p>
     </div>
 </div></div></div></section>
 
@@ -307,12 +393,12 @@
     <div class="section-content" style="text-align: center;">
         <i class="fas fa-hands-helping" style="font-size: 3.5rem; color: #1E6F9F; margin-bottom: 1rem;"></i>
         <h2 class="gradient-text" style="font-size: 2.2rem;">Collaborons pour la Culture</h2>
-        <p style="color: #4B5E77; margin-bottom: 2rem;">Une expertise média au service des priorités de l'UNESCO.</p>
+        <p style="color: #3A4C62; margin-bottom: 2rem;">Une expertise média au service des priorités de l'UNESCO.</p>
         <div style="display: flex; gap: 1.5rem; flex-wrap: wrap; justify-content: center;">
             <div class="glass-card" style="display: inline-block; padding: 1rem 2rem;"><i class="far fa-envelope"></i> contact@mamendiawar.com</div>
             <div class="glass-card" style="display: inline-block; padding: 1rem 2rem;"><i class="fas fa-globe"></i> www.rtssenegal.sn</div>
         </div>
-        <div style="margin-top: 2rem; font-size: 0.8rem; color: #6B7A8A;">Mame Ndiawar Diallo · Journaliste Culturelle, Productrice</div>
+        <div style="margin-top: 2rem; font-size: 0.8rem; color: #5A6E82;">Mame Ndiawar Diallo · Journaliste Culturelle, Productrice</div>
     </div>
 </div></div></div></section>
 
@@ -324,7 +410,7 @@
             labels: ['Littérature & Pensée 45%', 'Arts Visuels & Patrimoine 30%', 'Politiques Culturelles 25%'],
             datasets: [{ data: [45,30,25], backgroundColor: ['#1E6F9F','#3B82F6','#38BDF8'], borderColor: '#FFFFFF', borderWidth: 3 }]
         },
-        options: { responsive: true, maintainAspectRatio: true, cutout: '60%', plugins: { legend: { position: 'bottom', labels: { font: { size: 12, family: 'Space Grotesk' }, color: '#2D3A4B' } } } }
+        options: { responsive: true, maintainAspectRatio: true, cutout: '60%', plugins: { legend: { position: 'bottom', labels: { font: { size: 12, family: 'Space Grotesk' }, color: '#2C3E50' } } } }
     });
 </script>
 </body>

@@ -201,17 +201,98 @@
         </div>
     </div>
 </div></div></div></section>
-
-<!-- SECTION 3 - Citation avec icônes -->
-<section><div class="outer"><div class="inner"><div class="bg gradient-bg-blue">
+<!-- SECTION 3 - Citation avec effet machine à écrire (déclenchement à la visibilité) -->
+<section id="citation-section"><div class="outer"><div class="inner"><div class="bg gradient-bg-blue">
     <div class="section-content" style="display: flex; justify-content: center;">
-        <div class="quote-modern" style="max-width: 800px; text-align: center;">
-            <i class="fas fa-quote-left" style="font-size: 2.5rem; color: #38BDF8; opacity: 0.6; margin-bottom: 1rem; display: block;"></i>
-            <p style="font-size: 1.3rem; font-weight: 400;">"Pour moi, la lecture doit être considérée comme un bijou précieux pour chacun ; au-delà d'être une échappatoire, elle unit, inspire et instruit."</p>
-            <div style="margin-top: 1rem;"><i class="fas fa-microphone-alt" style="color: #38BDF8; margin-right: 0.5rem;"></i> — Mame Ndiawar Diallo</div>
+        <div class="quote-modern" style="max-width: 800px; width: 100%; text-align: center;">
+            <i class="fas fa-quote-left" style="font-size: 2.5rem; color: #1E6F9F; opacity: 0.6; margin-bottom: 1.5rem; display: block;"></i>
+            <div id="typed-quote" style="font-size: 1.3rem; font-weight: 400; font-family: 'Syne', serif; min-height: 120px; width: 100%;"></div>
+            <div style="margin-top: 1.5rem;">
+                <i class="fas fa-microphone-alt" style="color: #1E6F9F; margin-right: 0.5rem;"></i>
+                <span id="typed-author" class="gradient-text" style="font-weight: 600;"></span>
+            </div>
         </div>
     </div>
 </div></div></div></section>
+
+<script>
+    (function() {
+        let animationStarted = false;
+        let quoteIndex = 0;
+        let authorIndex = 0;
+        let quoteDone = false;
+        
+        const quoteText = "Pour moi, la lecture doit être considérée comme un bijou précieux pour chacun ; au-delà d'être une échappatoire, elle unit, inspire et instruit.";
+        const authorText = "— Mame Ndiawar Diallo";
+        
+        const quoteElement = document.getElementById("typed-quote");
+        const authorElement = document.getElementById("typed-author");
+        const section = document.getElementById("citation-section");
+        
+        function typeQuote() {
+            if (quoteIndex < quoteText.length) {
+                quoteElement.innerHTML += quoteText.charAt(quoteIndex);
+                quoteIndex++;
+                setTimeout(typeQuote, 25); // Plus rapide : 25ms au lieu de 35
+            } else {
+                quoteDone = true;
+                setTimeout(typeAuthor, 200);
+            }
+        }
+        
+        function typeAuthor() {
+            if (authorIndex < authorText.length) {
+                authorElement.innerHTML += authorText.charAt(authorIndex);
+                authorIndex++;
+                setTimeout(typeAuthor, 35); // Plus rapide : 35ms
+            } else {
+                const cursor = document.createElement("span");
+                cursor.className = "cursor-blink";
+                cursor.innerHTML = " ▊";
+                cursor.style.fontWeight = "normal";
+                authorElement.appendChild(cursor);
+            }
+        }
+        
+        function resetAndStart() {
+            if (animationStarted) return;
+            animationStarted = true;
+            quoteElement.innerHTML = "";
+            authorElement.innerHTML = "";
+            quoteIndex = 0;
+            authorIndex = 0;
+            quoteDone = false;
+            typeQuote();
+        }
+        
+        // Observer pour détecter quand la section entre dans le viewport
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting && !animationStarted) {
+                    resetAndStart();
+                    observer.unobserve(section);
+                }
+            });
+        }, { threshold: 0.3 });
+        
+        observer.observe(section);
+        
+        // Style curseur clignotant
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes blink {
+                0%, 100% { opacity: 1; }
+                50% { opacity: 0; }
+            }
+            .cursor-blink {
+                animation: blink 1s step-end infinite;
+                font-weight: 300;
+                color: #1E6F9F;
+            }
+        `;
+        document.head.appendChild(style);
+    })();
+</script>
 
 <!-- SECTION 4 - 15 Ans d'Expertise Médiale (image) -->
 <section><div class="outer"><div class="inner"><div class="bg gradient-bg-3">
