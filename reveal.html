@@ -172,15 +172,7 @@
             margin-top: 0.5rem;
         }
 
-        .kpi-card {
-            background: rgba(0,0,0,0.6);
-            backdrop-filter: blur(12px);
-            border-radius: 32px;
-            padding: 1.5rem;
-            margin-top: 2rem;
-        }
-
-        /* BG individuelle */
+        /* BG individuelles */
         .bg-home {
             background: linear-gradient(135deg, #F0F7FF 0%, #FFFFFF 100%);
         }
@@ -204,24 +196,121 @@
             background: linear-gradient(135deg, #EFF4FF, #FFFFFF);
         }
 
-        /* Responsive */
+        /* ===== RESPONSIVE : UNIQUEMENT POUR PETITS ÉCRANS ===== */
         @media (max-width: 900px) {
-            .bg { padding: 2rem 1.2rem; }
-            .cards-grid { grid-template-columns: 1fr !important; }
-            .timeline-grid { grid-template-columns: 1fr 1fr !important; }
-            .kpi-grid { grid-template-columns: 1fr 1fr !important; gap: 1rem; }
-            .stat-bubbles { justify-content: center; }
-            .hero-quote { font-size: 0.9rem; }
+            .bg { 
+                padding: 1.5rem 1rem !important; 
+            }
+            .cards-grid { 
+                grid-template-columns: 1fr !important; 
+                gap: 1rem !important;
+            }
+            .timeline-grid { 
+                grid-template-columns: 1fr 1fr !important; 
+                gap: 0.8rem !important;
+            }
+            
+            /* SECTION 3 : Expertise RTS - réduction des paddings et marges */
+            .bg-expertise .section-content {
+                gap: 1.5rem !important;
+            }
+            .bg-expertise .section-content > div {
+                min-width: auto !important;
+            }
+            .bg-expertise ul li {
+                font-size: 0.85rem;
+                margin-bottom: 0.5rem !important;
+            }
+            .bg-expertise .rounded-image {
+                height: 220px !important;
+            }
+            .bg-expertise .card-glass, 
+            .bg-expertise [style*="inline-flex"] {
+                padding: 0.5rem 1rem !important;
+                font-size: 0.8rem;
+            }
+            
+            /* SECTION 4 : Voix des créateurs - réduction */
+            .bg-voices .section-content {
+                gap: 1.2rem !important;
+            }
+            .bg-voices .rounded-image {
+                height: 220px !important;
+            }
+            .bg-voices [style*="margin-top: 2rem; background: white"] {
+                padding: 1rem !important;
+            }
+            .bg-voices [style*="font-size: 3.5rem"] {
+                font-size: 2.2rem !important;
+            }
+            
+            /* SECTION 6 : Parcours (bg-journey) - timeline cards plus compactes */
+            .bg-journey .section-content {
+                min-height: auto !important;
+                padding: 0.5rem 0 !important;
+            }
+            .bg-journey h2 {
+                margin-bottom: 1rem !important;
+                font-size: 1.8rem !important;
+            }
+            .timeline-card {
+                padding: 0.8rem !important;
+            }
+            .timeline-card i {
+                font-size: 1.2rem !important;
+            }
+            .timeline-card h3 {
+                font-size: 0.85rem !important;
+                margin: 0.4rem 0 0.2rem !important;
+            }
+            .timeline-card p {
+                font-size: 0.7rem !important;
+                line-height: 1.3;
+            }
+            
+            /* Ajustement global pour toutes les cartes */
+            .card-glass {
+                padding: 1.2rem !important;
+            }
+            .card-glass h2 {
+                font-size: 1.3rem !important;
+                margin-bottom: 0.5rem !important;
+            }
+            .card-glass p {
+                font-size: 0.85rem !important;
+            }
+            
+            /* section impact: graphique et texte */
+            .bg-impact .section-content {
+                gap: 1rem;
+            }
+            .bg-impact h2 {
+                font-size: 1.6rem !important;
+                margin-bottom: 0.5rem;
+            }
+            canvas#thematiquesChart {
+                max-width: 200px !important;
+                max-height: 200px !important;
+            }
         }
 
         @media (max-width: 600px) {
-            .timeline-grid { grid-template-columns: 1fr !important; }
+            .timeline-grid { 
+                grid-template-columns: 1fr !important; 
+            }
+            .stat-bubbles {
+                justify-content: center;
+            }
+            .hero-quote {
+                font-size: 0.85rem;
+                padding: 1rem;
+            }
         }
     </style>
 </head>
 <body>
 
-    <!-- SECTION 1 - COUVERTURE HERO (image 1/2 : studio / bibliothèque) -->
+    <!-- SECTION 1 - COUVERTURE HERO -->
     <section>
         <div class="outer"><div class="inner">
             <div class="bg bg-home">
@@ -300,7 +389,7 @@
         </div></div>
     </section>
 
-    <!-- SECTION 4 - VOIX DES CRÉATEURS (deuxième image : entretien / table) -->
+    <!-- SECTION 4 - VOIX DES CRÉATEURS (deuxième image : entretien) -->
     <section>
         <div class="outer"><div class="inner">
             <div class="bg bg-voices">
@@ -322,7 +411,7 @@
         </div></div>
     </section>
 
-    <!-- SECTION 5 - IMPACT AVEC CHART.JS (graphique donut pour les pourcentages) -->
+    <!-- SECTION 5 - IMPACT AVEC CHART.JS (graphique donut + barres) -->
     <section>
         <div class="outer"><div class="inner">
             <div class="bg bg-impact">
@@ -346,41 +435,32 @@
                                 <div style="display: flex; justify-content: space-between; font-weight: 600;"><span>🏛️ Politiques Culturelles</span><span style="color:#2563eb;">25%</span></div>
                                 <div style="height: 8px; background: #e2e8f0; border-radius: 4px; margin-top: 0.5rem;"><div style="width: 25%; height: 100%; background: #2563eb; border-radius: 4px;"></div></div>
                             </div>
-                            <div class="stat-bubble" style="margin-top: 2rem; background: white; text-align: left;"><div class="stat-number">+200k</div><div>Audience cumulée (TV, podcast, événements)</div></div>
                         </div>
                     </div>
-                    <p style="margin-top: 2rem; font-size: 0.85rem; color: var(--text-muted); text-align: center;">Données issues de l'analyse d'audience 2024 – Portée cross-média</p>
+                    <p style="margin-top: 2rem; font-size: 0.85rem; color: var(--text-muted); text-align: center;">Données d'audience 2024 – Portée cross-média</p>
                 </div>
             </div>
         </div></div>
     </section>
 
-    <!-- SECTION 6 - PARCOURS & PRESS-BOOK -->
+    <!-- SECTION 6 - PARCOURS & PRESS-BOOK (simplifié, sans KPI Card) -->
     <section>
         <div class="outer"><div class="inner">
             <div class="bg bg-journey">
                 <div class="section-content" style="display: flex; flex-direction: column; justify-content: center; min-height: 90vh;">
                     <h2 style="font-size: 2rem; font-weight: 700; color: white; margin-bottom: 2rem; display: flex; align-items: center; gap: 0.75rem; flex-wrap: wrap;"><i class="fas fa-timeline" style="color: #0070FF;"></i> Parcours & Press-Book</h2>
-                    <div class="timeline-grid" style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.2rem; margin-bottom: 2rem;">
-                        <div class="timeline-card"><i class="fas fa-graduation-cap" style="font-size: 1.5rem; color: #0070FF;"></i><h3 style="color: white; margin: 0.75rem 0 0.5rem; font-size: 1rem;">Formation</h3><p style="color: #cbd5e1; font-size: 0.8rem;">Journalisme spécialisé en enjeux culturels</p></div>
+                    <div class="timeline-grid" style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.2rem; margin-bottom: 1rem;">
+                        <div class="timeline-card"><i class="fas fa-graduation-cap" style="font-size: 1.5rem; color: #0070FF;"></i><h3 style="color: white; margin: 0.75rem 0 0.5rem; font-size: 1rem;">Formation</h3><p style="color: #cbd5e1; font-size: 0.8rem;">Journalisme spécialisé enjeux culturels</p></div>
                         <div class="timeline-card"><i class="fas fa-tv" style="font-size: 1.5rem; color: #0070FF;"></i><h3 style="color: white; margin: 0.75rem 0 0.5rem; font-size: 1rem;">RTS - Kenkeliba</h3><p style="color: #cbd5e1; font-size: 0.8rem;">Référence nationale, 6 ans d'antenne</p></div>
                         <div class="timeline-card"><i class="fas fa-podcast" style="font-size: 1.5rem; color: #0070FF;"></i><h3 style="color: white; margin: 0.75rem 0 0.5rem; font-size: 1rem;">Production</h3><p style="color: #cbd5e1; font-size: 0.8rem;">Émission indépendante [Nom]</p></div>
                         <div class="timeline-card"><i class="fas fa-globe" style="font-size: 1.5rem; color: #0070FF;"></i><h3 style="color: white; margin: 0.75rem 0 0.5rem; font-size: 1rem;">Rayonnement</h3><p style="color: #cbd5e1; font-size: 0.8rem;">Partenariats internationaux</p></div>
-                    </div>
-                    <div class="kpi-card">
-                        <div class="kpi-grid" style="display: grid; grid-template-columns: repeat(4, 1fr); text-align: center;">
-                            <div><div style="font-size: 2rem; font-weight: 800; color: #0070FF;">100+</div><div style="font-size: 0.8rem; color: #e2e8f0;">Entretiens</div></div>
-                            <div><div style="font-size: 2rem; font-weight: 800; color: #0070FF;">80+</div><div style="font-size: 0.8rem; color: #e2e8f0;">Critiques</div></div>
-                            <div><div style="font-size: 2rem; font-weight: 800; color: #0070FF;">15+</div><div style="font-size: 0.8rem; color: #e2e8f0;">Partenariats</div></div>
-                            <div><div style="font-size: 2rem; font-weight: 800; color: #0070FF;">12</div><div style="font-size: 0.8rem; color: #e2e8f0;">Pays</div></div>
-                        </div>
                     </div>
                 </div>
             </div>
         </div></div>
     </section>
 
-    <!-- SECTION 7 - COLLABORONS POUR LA CULTURE / APPEL FINAL -->
+    <!-- SECTION 7 - COLLABORONS POUR LA CULTURE -->
     <section>
         <div class="outer"><div class="inner">
             <div class="bg bg-contact">
