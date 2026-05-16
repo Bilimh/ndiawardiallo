@@ -1,0 +1,919 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Mame Ndiawar Diallo | Press Book UNESCO</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700;800&family=Inter:wght@300;400;500;600;700;800&family=Cormorant+Garamond:ital,wght@1,500;1,600;1,700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+<style>
+:root{
+  --deep:#111827;
+  --cream:#F8F5F0;
+  --gold:#C8A96B;
+  --brown:#6B4F3A;
+  --muted:#D6D3D1;
+  --accent:#8B5CF6;
+  --paper:#FFFDF8;
+  --text:#111827;
+}
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+html{
+  scroll-behavior:smooth;
+  scroll-snap-type:y mandatory;
+}
+
+body{
+  font-family:'Inter',sans-serif;
+  background:var(--cream);
+  color:var(--text);
+  overflow-x:hidden;
+}
+
+
+section{
+  min-height:100vh;
+  position:relative;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:5rem 2rem;
+  overflow:hidden;
+  scroll-snap-align:start;
+  scroll-snap-stop:always;
+}
+
+.section-content{
+  width:100%;
+  max-width:1400px;
+  margin:auto;
+  position:relative;
+  z-index:2;
+}
+
+h1,h2,h3{
+  font-family:'Playfair Display',serif;
+}
+
+h2{
+  font-size:clamp(2.8rem,6vw,5.8rem);
+  line-height:.95;
+  letter-spacing:-.04em;
+}
+
+p{
+  line-height:1.8;
+}
+
+.gold{color:var(--gold);}
+.brown{color:var(--brown);}
+.accent{color:var(--accent);}
+
+.kicker{
+  text-transform:uppercase;
+  letter-spacing:.18em;
+  font-size:.75rem;
+  font-weight:800;
+  color:var(--brown);
+  margin-bottom:1rem;
+}
+
+.btn{
+  display:inline-flex;
+  align-items:center;
+  gap:.7rem;
+  margin-top:2rem;
+  padding:1rem 1.5rem;
+  border-radius:999px;
+  background:var(--deep);
+  color:white;
+  font-weight:800;
+  text-decoration:none;
+}
+
+.texture::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background-image:
+    radial-gradient(rgba(17,24,39,.08) 1px, transparent 1px);
+  background-size:4px 4px;
+  opacity:.22;
+  pointer-events:none;
+  z-index:1;
+}
+
+.reveal{
+  opacity:0;
+  transform:translateY(45px);
+  transition:all .9s ease;
+}
+
+.reveal.visible{
+  opacity:1;
+  transform:translateY(0);
+}
+
+.reveal-left{
+  opacity:0;
+  transform:translateX(-60px);
+  transition:all .9s ease;
+}
+
+.reveal-right{
+  opacity:0;
+  transform:translateX(60px);
+  transition:all .9s ease;
+}
+
+.reveal-left.visible,
+.reveal-right.visible{
+  opacity:1;
+  transform:translateX(0);
+}
+
+.zoom-in{
+  opacity:0;
+  transform:scale(.92);
+  transition:all .9s ease;
+}
+
+.zoom-in.visible{
+  opacity:1;
+  transform:scale(1);
+}
+
+/* HERO */
+.hero{
+  min-height:100vh;
+  background:
+    linear-gradient(90deg, rgba(17,24,39,.95) 0%, rgba(17,24,39,.78) 45%, rgba(107,79,58,.45) 100%),
+    url("https://images.unsplash.com/photo-1519682337058-a94d519337bc?w=1800&auto=format&fit=crop") center/cover;
+  color:white;
+}
+
+.hero-grid{
+  display:grid;
+  grid-template-columns:1fr .9fr;
+  gap:3rem;
+  align-items:center;
+}
+
+.hero-title{
+  font-size:clamp(4rem,9vw,8.5rem);
+  line-height:.88;
+  letter-spacing:-.06em;
+  max-width:850px;
+}
+
+.hero-sub{
+  max-width:620px;
+  font-size:1.15rem;
+  color:#F8F5F0;
+  margin-top:1.5rem;
+}
+
+.identity{
+  margin-top:2.5rem;
+  padding-top:1.5rem;
+  border-top:1px solid rgba(255,255,255,.25);
+  max-width:520px;
+}
+
+.identity strong{
+  font-family:'Playfair Display',serif;
+  font-size:1.8rem;
+}
+
+.hero-collage{
+  position:relative;
+  min-height:620px;
+}
+
+.photo-card{
+  position:absolute;
+  background:white;
+  padding:.7rem;
+  box-shadow:0 30px 80px rgba(0,0,0,.35);
+}
+
+.photo-card img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  display:block;
+}
+
+.photo-1{
+  width:360px;
+  height:460px;
+  right:5%;
+  top:5%;
+  transform:rotate(4deg);
+}
+
+.photo-2{
+  width:260px;
+  height:340px;
+  left:4%;
+  bottom:8%;
+  transform:rotate(-8deg);
+}
+
+.photo-3{
+  width:230px;
+  height:230px;
+  right:28%;
+  bottom:3%;
+  transform:rotate(8deg);
+}
+
+.year-mark{
+  position:absolute;
+  font-size:8rem;
+  font-family:'Playfair Display',serif;
+  color:rgba(200,169,107,.28);
+  right:0;
+  bottom:0;
+  line-height:.8;
+}
+
+/* MAGAZINE SPLIT */
+.split{
+  background:var(--paper);
+}
+
+.split-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:4rem;
+  align-items:center;
+}
+
+.image-stack{
+  position:relative;
+  min-height:620px;
+}
+
+.stack-img{
+  position:absolute;
+  overflow:hidden;
+  box-shadow:0 25px 70px rgba(17,24,39,.18);
+}
+
+.stack-img img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+}
+
+.stack-a{
+  width:390px;
+  height:500px;
+  left:8%;
+  top:5%;
+  transform:rotate(-4deg);
+}
+
+.stack-b{
+  width:300px;
+  height:360px;
+  right:4%;
+  bottom:4%;
+  transform:rotate(6deg);
+}
+
+.stack-label{
+  position:absolute;
+  left:0;
+  bottom:80px;
+  background:var(--gold);
+  padding:1.2rem 2rem;
+  font-weight:900;
+  text-transform:uppercase;
+  letter-spacing:.12em;
+  transform:rotate(-3deg);
+}
+
+/* FULL IMAGE */
+.full-image-section{
+  background:
+    linear-gradient(90deg, rgba(17,24,39,.9), rgba(17,24,39,.45)),
+    url("https://images.unsplash.com/photo-1521737604893-d14cc237f11d?w=1800&auto=format&fit=crop") center/cover;
+  color:white;
+}
+
+.full-image-section h2{
+  max-width:850px;
+}
+
+.quote-large{
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(2rem,4vw,4.2rem);
+  line-height:1.1;
+  max-width:900px;
+  margin-top:2rem;
+  color:var(--cream);
+}
+
+/* COLLAGE SECTION */
+.collage-section{
+  background:var(--cream);
+}
+
+.collage-grid{
+  display:grid;
+  grid-template-columns:1.1fr .9fr;
+  gap:3rem;
+  align-items:center;
+}
+
+.editorial-collage{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:1rem;
+  transform:rotate(-1deg);
+}
+
+.collage-item{
+  min-height:260px;
+  overflow:hidden;
+  position:relative;
+  background:white;
+  padding:.6rem;
+  box-shadow:0 25px 60px rgba(17,24,39,.12);
+}
+
+.collage-item.large{
+  grid-row:span 2;
+  min-height:540px;
+}
+
+.collage-item img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  display:block;
+  filter:grayscale(.15);
+}
+
+.collage-number{
+  position:absolute;
+  font-family:'Playfair Display',serif;
+  font-size:7rem;
+  color:rgba(255,255,255,.7);
+  bottom:-25px;
+  left:15px;
+}
+
+/* STATS */
+.stats-section{
+  background:var(--deep);
+  color:white;
+}
+
+.stats-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:2rem;
+  margin-top:3rem;
+}
+
+.stat-card{
+  background:rgba(255,255,255,.06);
+  border:1px solid rgba(200,169,107,.22);
+  padding:2.5rem;
+  border-radius:2rem;
+  text-align:center;
+}
+
+.stat-number{
+  font-family:'Playfair Display',serif;
+  font-size:4.5rem;
+  color:var(--gold);
+  font-weight:800;
+}
+
+/* GALLERY */
+.gallery-section{
+  background:var(--paper);
+}
+
+.gallery-masonry{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:1rem;
+  margin-top:3rem;
+}
+
+.gallery-item{
+  position:relative;
+  overflow:hidden;
+  min-height:280px;
+  background:#ddd;
+  box-shadow:0 20px 50px rgba(17,24,39,.1);
+}
+
+.gallery-item.tall{
+  grid-row:span 2;
+  min-height:580px;
+}
+
+.gallery-item.wide{
+  grid-column:span 2;
+}
+
+.gallery-item img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  transition:.6s ease;
+}
+
+.gallery-item:hover img{
+  transform:scale(1.08);
+}
+
+.gallery-caption{
+  position:absolute;
+  left:1rem;
+  bottom:1rem;
+  background:rgba(17,24,39,.85);
+  color:white;
+  padding:.7rem 1rem;
+  font-size:.8rem;
+  font-weight:700;
+}
+
+/* TIMELINE */
+.timeline-section{
+  background:var(--cream);
+}
+
+.timeline{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:1.2rem;
+  margin-top:3rem;
+}
+
+.timeline-card{
+  background:white;
+  padding:2rem;
+  min-height:280px;
+  border-top:6px solid var(--gold);
+  box-shadow:0 25px 60px rgba(17,24,39,.09);
+}
+
+.timeline-card span{
+  font-family:'Playfair Display',serif;
+  font-size:3rem;
+  color:var(--brown);
+  font-weight:800;
+}
+
+/* FINAL */
+.final{
+  background:
+    linear-gradient(rgba(17,24,39,.86), rgba(17,24,39,.86)),
+    url("https://images.unsplash.com/photo-1507842217343-583bb7270b66?w=1800&auto=format&fit=crop") center/cover;
+  color:white;
+  text-align:center;
+}
+
+.final h2{
+  max-width:950px;
+  margin:auto;
+}
+
+.final p{
+  max-width:700px;
+  margin:2rem auto 0;
+  color:#E5E7EB;
+}
+
+@media(max-width:1000px){
+  section{
+    padding:4rem 1.2rem;
+  }
+
+  .hero-grid,
+  .split-grid,
+  .collage-grid,
+  .stats-grid,
+  .timeline{
+    grid-template-columns:1fr;
+  }
+
+  .hero-collage,
+  .image-stack{
+    min-height:520px;
+  }
+
+  .photo-1{
+    width:280px;
+    height:360px;
+  }
+
+  .photo-2{
+    width:210px;
+    height:280px;
+  }
+
+  .photo-3{
+    width:180px;
+    height:180px;
+  }
+
+  .gallery-masonry{
+    grid-template-columns:1fr;
+  }
+
+  .gallery-item,
+  .gallery-item.tall,
+  .gallery-item.wide{
+    grid-column:auto;
+    grid-row:auto;
+    min-height:320px;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<section class="hero texture">
+  <div class="section-content hero-grid">
+    <div class="reveal-left">
+      <div class="kicker" style="color:var(--gold);">Press Book Culture & Littérature</div>
+
+      <h1 class="hero-title">
+        Le Livre<br>
+        au Cœur de<br>
+        l’Action <span class="gold">Culturelle</span>
+      </h1>
+
+      <p class="hero-sub">
+        Une présentation stratégique pour le Secteur Culture de l’UNESCO :
+        médiation littéraire, dialogue interculturel et promotion de la bibliodiversité.
+      </p>
+
+      <div class="identity">
+        <strong>Mame Ndiawar Diallo</strong><br>
+        Journaliste culturelle · Productrice<br>
+        Entre les Lignes & Kenkeliba — RTS
+      </div>
+    </div>
+
+    <div class="hero-collage reveal-right">
+      <div class="photo-card photo-1">
+        <img src="https://images.unsplash.com/photo-1513475382585-d06e58bcb0e0?w=900&auto=format&fit=crop" alt="Livres">
+      </div>
+
+      <div class="photo-card photo-2">
+        <img src="https://images.unsplash.com/photo-1495020689067-958852a7765e?w=800&auto=format&fit=crop" alt="Journalisme">
+      </div>
+
+      <div class="photo-card photo-3">
+        <img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?w=600&auto=format&fit=crop" alt="Culture">
+      </div>
+
+      <div class="year-mark">2026</div>
+    </div>
+  </div>
+</section>
+
+<section class="split texture">
+  <div class="section-content split-grid">
+    <div class="image-stack reveal-left">
+      <div class="stack-img stack-a">
+        <img src="https://images.unsplash.com/photo-1524178232363-1fb2b075b655?w=1000&auto=format&fit=crop" alt="Conférence">
+      </div>
+
+      <div class="stack-img stack-b">
+        <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?w=900&auto=format&fit=crop" alt="Équipe média">
+      </div>
+
+      <div class="stack-label">Média · Culture · Livre</div>
+    </div>
+
+    <div class="reveal-right">
+      <div class="kicker">Double impact audiovisuel</div>
+
+      <h2>
+        Une voix<br>
+        qui transmet<br>
+        les <span class="brown">idées</span>.
+      </h2>
+
+      <p style="margin-top:2rem;color:#4B5563;max-width:580px;">
+        À travers ses émissions et chroniques culturelles, Mame Ndiawar Diallo
+        crée un pont entre les auteurs, les institutions, les lecteurs et le grand public.
+      </p>
+
+      <a class="btn" href="#">
+        <i class="fa-solid fa-arrow-right"></i>
+        Découvrir le parcours
+      </a>
+    </div>
+  </div>
+</section>
+
+<section class="full-image-section texture">
+  <div class="section-content reveal">
+    <div class="kicker" style="color:var(--gold);">Vision éditoriale</div>
+
+    <h2>
+      La culture devient vivante
+      lorsqu’elle circule.
+    </h2>
+
+    <div class="quote-large">
+      “La lecture unit, inspire et instruit. Elle donne une voix aux récits
+      et une mémoire aux peuples.”
+    </div>
+  </div>
+</section>
+
+<section class="collage-section texture">
+  <div class="section-content collage-grid">
+    <div class="reveal-left">
+      <div class="kicker">Entre les Lignes</div>
+
+      <h2>
+        Donner de la profondeur
+        aux œuvres.
+      </h2>
+
+      <p style="margin-top:2rem;color:#4B5563;max-width:580px;">
+        Une émission pensée comme un espace de conversation avec les auteurs,
+        les penseurs et les acteurs culturels. Chaque entretien devient un lieu
+        de transmission et de réflexion.
+      </p>
+    </div>
+
+    <div class="editorial-collage reveal-right">
+      <div class="collage-item large">
+        <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=900&auto=format&fit=crop" alt="Interview">
+        <div class="collage-number">01</div>
+      </div>
+
+      <div class="collage-item">
+        <img src="https://images.unsplash.com/photo-1524995997946-a1c2e315a42f?w=900&auto=format&fit=crop" alt="Bibliothèque">
+      </div>
+
+      <div class="collage-item">
+        <img src="https://images.unsplash.com/photo-1456513080510-7bf3a84b82f8?w=900&auto=format&fit=crop" alt="Lecture">
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="split texture">
+  <div class="section-content split-grid">
+    <div class="editorial-collage reveal-left">
+      <div class="collage-item">
+        <img src="https://images.unsplash.com/photo-1590602847861-f357a9332bbc?w=900&auto=format&fit=crop" alt="Microphone">
+      </div>
+
+      <div class="collage-item large">
+        <img src="https://images.unsplash.com/photo-1495567720989-cebdbdd97913?w=900&auto=format&fit=crop" alt="Studio">
+        <div class="collage-number">02</div>
+      </div>
+
+      <div class="collage-item">
+        <img src="https://images.unsplash.com/photo-1507679799987-c73779587ccf?w=900&auto=format&fit=crop" alt="Journaliste">
+      </div>
+    </div>
+
+    <div class="reveal-right">
+      <div class="kicker">Kenkeliba — RTS</div>
+
+      <h2>
+        La lecture<br>
+        portée vers<br>
+        le <span class="brown">grand public</span>.
+      </h2>
+
+      <p style="margin-top:2rem;color:#4B5563;max-width:580px;">
+        Les chroniques culturelles rendent les livres accessibles, visibles
+        et désirables. Elles transforment l’actualité littéraire en sujet de société.
+      </p>
+    </div>
+  </div>
+</section>
+
+<section class="stats-section texture">
+  <div class="section-content">
+    <div class="reveal" style="text-align:center;">
+      <div class="kicker" style="color:var(--gold);">Influence & résonance</div>
+      <h2>Une présence médiatique solide.</h2>
+    </div>
+
+    <div class="stats-grid">
+      <div class="stat-card zoom-in">
+        <div class="stat-number">
+          <span class="counter" data-target="15" data-suffix="+">0</span>
+        </div>
+        <p>Années d’expertise</p>
+      </div>
+
+      <div class="stat-card zoom-in">
+        <div class="stat-number">
+          <span class="counter" data-target="2" data-suffix="M+">0</span>
+        </div>
+        <p>Audience cumulée estimée</p>
+      </div>
+
+      <div class="stat-card zoom-in">
+        <div class="stat-number">
+          <span class="counter" data-target="100" data-suffix="%">0</span>
+        </div>
+        <p>Engagement culturel</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="gallery-section texture">
+  <div class="section-content">
+    <div class="reveal">
+      <div class="kicker">Galerie éditoriale</div>
+
+      <h2>
+        Images, plateaux,<br>
+        livres et rencontres.
+      </h2>
+    </div>
+
+    <div class="gallery-masonry">
+      <div class="gallery-item tall reveal-left">
+        <img src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?w=900&auto=format&fit=crop" alt="">
+        <div class="gallery-caption">Rencontres culturelles</div>
+      </div>
+
+      <div class="gallery-item reveal">
+        <img src="https://images.unsplash.com/photo-1524995997946-a1c2e315a42f?w=900&auto=format&fit=crop" alt="">
+        <div class="gallery-caption">Bibliodiversité</div>
+      </div>
+
+      <div class="gallery-item reveal">
+        <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=900&auto=format&fit=crop" alt="">
+        <div class="gallery-caption">Émission</div>
+      </div>
+
+      <div class="gallery-item tall reveal-right">
+        <img src="https://images.unsplash.com/photo-1524178232363-1fb2b075b655?w=900&auto=format&fit=crop" alt="">
+        <div class="gallery-caption">Conférence</div>
+      </div>
+
+      <div class="gallery-item wide reveal">
+        <img src="https://images.unsplash.com/photo-1495020689067-958852a7765e?w=1200&auto=format&fit=crop" alt="">
+        <div class="gallery-caption">Presse & journalisme</div>
+      </div>
+
+      <div class="gallery-item reveal">
+        <img src="https://images.unsplash.com/photo-1507842217343-583bb7270b66?w=900&auto=format&fit=crop" alt="">
+        <div class="gallery-caption">Patrimoine écrit</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="timeline-section texture">
+  <div class="section-content">
+    <div class="reveal">
+      <div class="kicker">Rayonnement international</div>
+
+      <h2>
+        Un agenda culturel<br>
+        tourné vers le monde.
+      </h2>
+    </div>
+
+    <div class="timeline">
+      <div class="timeline-card reveal-left">
+        <span>01</span>
+        <h3>Conakry</h3>
+        <p>Participation aux 72 Heures du Livre.</p>
+      </div>
+
+      <div class="timeline-card reveal">
+        <span>02</span>
+        <h3>Genève</h3>
+        <p>Rencontres autour de la Francophonie et de l’Afrique.</p>
+      </div>
+
+      <div class="timeline-card reveal">
+        <span>03</span>
+        <h3>Abidjan</h3>
+        <p>Marché de l’Industrie du Livre d’Afrique.</p>
+      </div>
+
+      <div class="timeline-card reveal-right">
+        <span>04</span>
+        <h3>UNESCO</h3>
+        <p>Plaidoyer pour la bibliodiversité africaine.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="full-image-section texture" style="background-image:linear-gradient(90deg,rgba(17,24,39,.88),rgba(17,24,39,.55)),url('https://images.unsplash.com/photo-1519389950473-47ba0277781c?w=1800&auto=format&fit=crop');">
+  <div class="section-content reveal">
+    <div class="kicker" style="color:var(--gold);">Synergies UNESCO</div>
+
+    <h2>
+      Priorité Afrique.<br>
+      Égalité des genres.<br>
+      Diversité culturelle.
+    </h2>
+
+    <p style="max-width:650px;margin-top:2rem;color:#E5E7EB;">
+      Une expertise média alignée avec les enjeux de transmission,
+      d’accès à la culture et de valorisation des expressions culturelles.
+    </p>
+  </div>
+</section>
+
+<section class="final texture">
+  <div class="section-content reveal">
+    <div class="kicker" style="color:var(--gold);">Conclusion</div>
+
+    <h2>
+      Collaborons pour faire vivre
+      la culture et la littérature.
+    </h2>
+
+    <p>
+      Mame Ndiawar Diallo met son expérience médiatique, son réseau culturel
+      et sa passion du livre au service d’un projet institutionnel fort.
+    </p>
+
+    <a class="btn" style="background:var(--gold);color:var(--deep);" href="#">
+      <i class="fa-regular fa-envelope"></i>
+      contact@mamendiawar.com
+    </a>
+  </div>
+</section>
+
+<script>
+document.addEventListener("DOMContentLoaded",()=>{
+  const animated=document.querySelectorAll(".reveal,.reveal-left,.reveal-right,.zoom-in");
+
+  const revealObserver=new IntersectionObserver((entries)=>{
+    entries.forEach(entry=>{
+      if(entry.isIntersecting){
+        entry.target.classList.add("visible");
+      }
+    });
+  },{threshold:.15});
+
+  animated.forEach(el=>revealObserver.observe(el));
+
+  const counters=document.querySelectorAll(".counter");
+
+  function animateCounter(counter){
+    const target=Number(counter.dataset.target);
+    const suffix=counter.dataset.suffix || "";
+    let current=0;
+    const duration=1800;
+    const stepTime=20;
+    const steps=duration/stepTime;
+    const increment=target/steps;
+
+    const timer=setInterval(()=>{
+      current+=increment;
+
+      if(current>=target){
+        current=target;
+        clearInterval(timer);
+      }
+
+      counter.textContent=Math.floor(current)+suffix;
+    },stepTime);
+  }
+
+  const counterObserver=new IntersectionObserver((entries)=>{
+    entries.forEach(entry=>{
+      if(entry.isIntersecting && !entry.target.classList.contains("done")){
+        entry.target.classList.add("done");
+        animateCounter(entry.target);
+      }
+    });
+  },{threshold:.6});
+
+  counters.forEach(counter=>counterObserver.observe(counter));
+});
+</script>
+
+</body>
+</html>

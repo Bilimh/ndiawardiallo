@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Mame Ndiawar Diallo | Press Book UNESCO — Édition Visuelle</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700;800&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+<style>
+
+:root{
+  --deep:#0A0A0A;
+  --cream:#F5F2EB;
+  --gold:#D4AF37;
+  --brown:#5C3A21;
+  --accent:#9B6B43;
+  --text:#1A1A1A;
+}
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+html{
+  scroll-behavior:smooth;
+  scroll-snap-type:y mandatory;
+}
+
+body{
+  font-family:'Inter',sans-serif;
+  background:var(--cream);
+  color:var(--text);
+  overflow-x:hidden;
+}
+
+section{
+  min-height:100vh;
+  width:100%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  scroll-snap-align:start;
+  position:relative;
+}
+
+/* Style visuel : chaque section raconte une histoire */
+.section-content{
+  width:100%;
+  max-width:1400px;
+  margin:auto;
+  padding:4rem 2rem;
+  z-index:2;
+}
+
+/* Hero : full image */
+.hero-full{
+  position:relative;
+  min-height:100vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  color:white;
+}
+
+.hero-full .bg-image{
+  position:absolute;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  z-index:0;
+}
+
+.hero-full .overlay{
+  position:absolute;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  background:linear-gradient(135deg, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.4) 100%);
+  z-index:1;
+}
+
+.hero-full .content{
+  position:relative;
+  z-index:2;
+  max-width:900px;
+  padding:2rem;
+}
+
+/* Layout alterné : image à gauche / texte à droite */
+.split-layout{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:2rem;
+  align-items:center;
+}
+
+.split-layout.reverse{
+  direction:rtl;
+}
+
+.split-layout.reverse > *{
+  direction:ltr;
+}
+
+.split-image{
+  width:100%;
+  height:500px;
+  object-fit:cover;
+  border-radius:1.5rem;
+  box-shadow:0 25px 50px -12px rgba(0,0,0,0.25);
+  transition:transform 0.4s ease;
+}
+
+.split-image:hover{
+  transform:scale(1.02);
+}
+
+.split-text{
+  padding:2rem;
+}
+
+/* Galerie d'images avec rotation */
+.gallery-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:1.5rem;
+  margin:2rem 0;
+}
+
+.gallery-item{
+  position:relative;
+  overflow:hidden;
+  border-radius:1rem;
+  aspect-ratio:1/1;
+}
+
+.gallery-item img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  transition:transform 0.5s ease;
+}
+
+.gallery-item:hover img{
+  transform:scale(1.1);
+}
+
+.gallery-item .caption{
+  position:absolute;
+  bottom:0;
+  left:0;
+  right:0;
+  background:linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+  color:white;
+  padding:1rem;
+  font-size:0.8rem;
+  transform:translateY(100%);
+  transition:transform 0.3s ease;
+}
+
+.gallery-item:hover .caption{
+  transform:translateY(0);
+}
+
+/* Carte avec image de fond */
+.bg-card{
+  background-size:cover;
+  background-position:center;
+  border-radius:2rem;
+  padding:3rem;
+  position:relative;
+  min-height:400px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+}
+
+.bg-card .overlay{
+  position:absolute;
+  top:0;
+  left:0;
+  right:0;
+  bottom:0;
+  background:linear-gradient(135deg, rgba(0,0,0,0.7), rgba(0,0,0,0.5));
+  border-radius:2rem;
+}
+
+.bg-card .content{
+  position:relative;
+  z-index:2;
+  color:white;
+}
+
+/* Chiffres en grand */
+.stat-row{
+  display:flex;
+  justify-content:space-around;
+  flex-wrap:wrap;
+  gap:2rem;
+  margin:3rem 0;
+}
+
+.stat-item{
+  text-align:center;
+  flex:1;
+  min-width:150px;
+}
+
+.stat-number{
+  font-family:'Playfair Display',serif;
+  font-size:4rem;
+  font-weight:800;
+  color:var(--gold);
+}
+
+/* Timeline */
+.timeline{
+  display:flex;
+  flex-direction:column;
+  gap:1.5rem;
+}
+
+.timeline-item{
+  display:flex;
+  gap:1rem;
+  align-items:flex-start;
+}
+
+.timeline-icon{
+  background:var(--gold);
+  border-radius:50%;
+  width:50px;
+  height:50px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  flex-shrink:0;
+}
+
+.timeline-content h4{
+  font-family:'Playfair Display',serif;
+  font-size:1.2rem;
+}
+
+/* Responsive */
+@media(max-width:900px){
+  .split-layout{
+    grid-template-columns:1fr;
+    gap:1rem;
+  }
+  .gallery-grid{
+    grid-template-columns:1fr;
+  }
+  .stat-number{
+    font-size:2.5rem;
+  }
+  .section-content{
+    padding:2rem 1rem;
+  }
+}
+
+/* Animations */
+.reveal{
+  opacity:0;
+  transform:translateY(40px);
+  transition:all 0.8s ease;
+}
+
+.reveal.visible{
+  opacity:1;
+  transform:translateY(0);
+}
+
+</style>
+</head>
+<body>
+
+<!-- SECTION 1 : HERO FULL IMAGE -->
+<section class="hero-full">
+  <img src="https://images.unsplash.com/photo-1581091226033-d5c48150dbaa?w=1600&auto=format" class="bg-image" alt="Plateau télévision">
+  <div class="overlay"></div>
+  <div class="content reveal">
+    <div class="badge-modern" style="display:inline-block;background:rgba(255,255,255,0.2);backdrop-filter:blur(10px);padding:0.5rem 1rem;border-radius:50px;margin-bottom:1rem;">
+      <i class="fas fa-microphone-alt"></i> Journaliste Culturelle · Productrice
+    </div>
+    <h1 style="font-family:'Playfair Display',serif;font-size:clamp(2.5rem,8vw,5rem);margin:1rem 0;">Le Livre au Cœur<br>de l’Action <span style="color:var(--gold);">Culturelle</span></h1>
+    <p style="font-size:1.2rem;max-width:700px;margin:1rem auto;">Présentation stratégique pour le Secteur Culture de l’UNESCO. Une voix médiatique au service de la lecture, de la bibliodiversité et du dialogue interculturel.</p>
+    <div style="margin-top:2rem;">
+      <strong>Mame Ndiawar Diallo</strong><br>
+      <i class="fas fa-tv"></i> Entre les Lignes & Kenkeliba — RTS
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 2 : DOUBLE IMPACT (image gauche / texte droite) -->
+<section style="background:white;">
+  <div class="section-content">
+    <div class="split-layout reveal">
+      <img src="https://images.unsplash.com/photo-1504711434969-e33886168f5c?w=800&auto=format" class="split-image" alt="Interview en plateau">
+      <div class="split-text">
+        <h2 style="font-family:'Playfair Display',serif;font-size:2.5rem;">Double Impact Audiovisuel</h2>
+        <div style="margin:1.5rem 0;">
+          <h3><i class="fas fa-newspaper" style="color:var(--gold);"></i> Entre les Lignes</h3>
+          <p>Une émission de référence dédiée aux grands entretiens avec les intellectuels, auteurs et diplomates.</p>
+        </div>
+        <div>
+          <h3><i class="fas fa-tv" style="color:var(--gold);"></i> Kenkeliba — RTS</h3>
+          <p>Des chroniques culturelles hebdomadaires pour démocratiser la lecture auprès d'un large public.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 3 : CITATION avec image de fond -->
+<section>
+  <div class="section-content">
+    <div class="bg-card reveal" style="background-image:url('https://images.unsplash.com/photo-1524995997946-a1c2e315a42f?w=1400&auto=format');">
+      <div class="overlay"></div>
+      <div class="content">
+        <i class="fas fa-quote-left" style="font-size:3rem;color:var(--gold);margin-bottom:1rem;"></i>
+        <p style="font-family:'Playfair Display',serif;font-size:clamp(1.2rem,4vw,2rem);max-width:800px;margin:1rem auto;line-height:1.4;">"Pour moi, la lecture doit être considérée comme un bijou précieux pour chacun ; au-delà d'être une échappatoire, elle unit, inspire et instruit."</p>
+        <p style="margin-top:1rem;">— Mame Ndiawar Diallo</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 4 : EXPERTISE (image droite / texte gauche) -->
+<section style="background:var(--deep);color:white;">
+  <div class="section-content">
+    <div class="split-layout reverse reveal">
+      <img src="https://images.unsplash.com/photo-1457369804613-52c61a468e7d?w=800&auto=format" class="split-image" alt="Bibliothèque">
+      <div class="split-text">
+        <h2 style="font-family:'Playfair Display',serif;font-size:2.5rem;">15 Ans d'Expertise Médiale</h2>
+        <p>Une légitimité bâtie sur le terrain de la culture, du journalisme et de la diplomatie littéraire.</p>
+        <ul style="list-style:none;margin-top:1.5rem;">
+          <li><i class="fas fa-check-circle" style="color:var(--gold);"></i> Diplômée en communication et journalisme</li>
+          <li><i class="fas fa-check-circle" style="color:var(--gold);"></i> Figure de référence pour la critique d'ouvrages à la RTS</li>
+          <li><i class="fas fa-check-circle" style="color:var(--gold);"></i> Médiatrice entre créateurs et institutions</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 5 : CHIFFRES + GALERIE D'IMAGES -->
+<section style="background:white;">
+  <div class="section-content">
+    <h2 class="reveal" style="text-align:center;font-family:'Playfair Display',serif;">Influence & Résonance</h2>
+    <div class="stat-row reveal">
+      <div class="stat-item">
+        <div class="stat-number"><span class="counter" data-target="15" data-suffix="+">0</span></div>
+        <p>Années d'expertise</p>
+      </div>
+      <div class="stat-item">
+        <div class="stat-number"><span class="counter" data-target="2" data-suffix="M+">0</span></div>
+        <p>Audience cumulée RTS</p>
+      </div>
+      <div class="stat-item">
+        <div class="stat-number"><span class="counter" data-target="100" data-suffix="%">0</span></div>
+        <p>Engagement culturel</p>
+      </div>
+    </div>
+    
+    <!-- GALERIE : les images de sa carrière (remplacer par ses vraies photos) -->
+    <div class="gallery-grid reveal">
+      <div class="gallery-item">
+        <img src="https://images.unsplash.com/photo-1475721027785-f74eccf877e2?w=600&auto=format" alt="Interview">
+        <div class="caption">Interview avec un auteur</div>
+      </div>
+      <div class="gallery-item">
+        <img src="https://images.unsplash.com/photo-1543269865-cbf427effbad?w=600&auto=format" alt="Plateau">
+        <div class="caption">En plateau RTS</div>
+      </div>
+      <div class="gallery-item">
+        <img src="https://images.unsplash.com/photo-1524178232363-1fb2b075b655?w=600&auto=format" alt="Dédicace">
+        <div class="caption">Rencontre littéraire</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 6 : TABLEAU + TIMELINE VISUELLE -->
+<section style="background:var(--cream);">
+  <div class="section-content">
+    <h2 class="reveal" style="font-family:'Playfair Display',serif;">Médiation & Publics Cibles</h2>
+    <div class="timeline reveal">
+      <div class="timeline-item">
+        <div class="timeline-icon"><i class="fas fa-book" style="color:white;"></i></div>
+        <div class="timeline-content">
+          <h4>Littéraire</h4>
+          <p>Promotion des œuvres et auteurs — Public : Jeunesse & chercheurs</p>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-icon"><i class="fas fa-building" style="color:white;"></i></div>
+        <div class="timeline-content">
+          <h4>Institutionnelle</h4>
+          <p>Plaidoyer culturel — Public : UNESCO & ONG</p>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-icon"><i class="fas fa-edit" style="color:white;"></i></div>
+        <div class="timeline-content">
+          <h4>Éditoriale</h4>
+          <p>Soutien à la chaîne du livre — Public : Bibliothèques & éditeurs</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 7 : IMPACT avec image fond -->
+<section>
+  <div class="section-content">
+    <div class="bg-card reveal" style="background-image:url('https://images.unsplash.com/photo-1524995997946-a1c2e315a42f?w=1400&auto=format');min-height:auto;padding:3rem;">
+      <div class="overlay" style="background:linear-gradient(135deg, rgba(0,0,0,0.8), rgba(0,0,0,0.6));"></div>
+      <div class="content" style="width:100%;">
+        <h2 style="color:white;">Impact Culturel</h2>
+        <div style="margin:2rem 0;">
+          <div><strong>Littérature & Pensée — 45%</strong><div class="progress-bar" style="background:rgba(255,255,255,0.3);"><div class="progress-fill" style="width:45%;background:var(--gold);height:8px;border-radius:10px;"></div></div></div>
+          <div style="margin:1.5rem 0;"><strong>Arts Visuels & Patrimoine — 30%</strong><div class="progress-bar" style="background:rgba(255,255,255,0.3);"><div class="progress-fill" style="width:30%;background:var(--gold);height:8px;border-radius:10px;"></div></div></div>
+          <div><strong>Politiques Culturelles — 25%</strong><div class="progress-bar" style="background:rgba(255,255,255,0.3);"><div class="progress-fill" style="width:25%;background:var(--gold);height:8px;border-radius:10px;"></div></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 8 : CTA + CONTACT -->
+<section style="background:white;">
+  <div class="section-content" style="text-align:center;">
+    <div class="reveal">
+      <i class="fas fa-hands-helping" style="font-size:4rem;color:var(--gold);margin-bottom:1rem;"></i>
+      <h2 style="font-family:'Playfair Display',serif;">Collaborons pour la Culture</h2>
+      <p style="max-width:600px;margin:1rem auto;">Une expertise média au service des priorités culturelles de l'UNESCO.</p>
+      <div style="margin-top:2rem;">
+        <a class="cta" style="display:inline-flex;align-items:center;gap:0.5rem;background:var(--gold);color:var(--deep);padding:1rem 2rem;border-radius:50px;text-decoration:none;font-weight:700;"><i class="fas fa-envelope"></i> contact@mamendiawar.com</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+// Reveal animations
+document.addEventListener("DOMContentLoaded",()=>{
+  const reveals=document.querySelectorAll(".reveal");
+  const observer=new IntersectionObserver((entries)=>{
+    entries.forEach(entry=>{
+      if(entry.isIntersecting) entry.target.classList.add("visible");
+    });
+  },{threshold:0.2});
+  reveals.forEach(r=>observer.observe(r));
+});
+
+// Counters
+const counters=document.querySelectorAll(".counter");
+function animateCounter(c){
+  const target=parseInt(c.dataset.target);
+  const suffix=c.dataset.suffix||"";
+  let current=0;
+  const step=target/60;
+  const timer=setInterval(()=>{
+    current+=step;
+    if(current>=target){
+      c.textContent=target+suffix;
+      clearInterval(timer);
+    }else{
+      c.textContent=Math.floor(current)+suffix;
+    }
+  },25);
+}
+const counterObserver=new IntersectionObserver((entries)=>{
+  entries.forEach(entry=>{
+    if(entry.isIntersecting && !entry.target.classList.contains("done")){
+      entry.target.classList.add("done");
+      animateCounter(entry.target);
+    }
+  });
+},{threshold:0.5});
+counters.forEach(c=>counterObserver.observe(c));
+</script>
+
+</body>
+</html>
