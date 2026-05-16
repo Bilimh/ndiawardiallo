@@ -3,19 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes, viewport-fit=cover">
-    <title>Press-Book | Mame Ndiawar Diallo – Médiation Littéraire & Dialogue Interculturel</title>
+    <title>Press-Book | Mame Ndiawar Diallo – Le Livre au Cœur de l'Action Culturelle</title>
     
-    <!-- Google Fonts + Font Awesome + Chart.js CDN -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800;14..32,900&family=Playfair+Display:wght@700;800;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;400;500;600;700;800;900&family=Playfair+Display:wght@700;800;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
     
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
 
         body {
             font-family: 'Inter', system-ui, sans-serif;
@@ -34,7 +29,6 @@
             scroll-snap-stop: always;
             min-height: 100vh;
             width: 100%;
-            position: relative;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -53,11 +47,7 @@
 
         :root {
             --blue: #0070FF;
-            --blue-dark: #0052b3;
-            --soft-bg: #F8FAFF;
             --card-white: #FFFFFF;
-            --text-dark: #0A1929;
-            --text-muted: #4a5b6e;
             --border-light: #e2edff;
         }
 
@@ -78,14 +68,14 @@
 
         .hero-title {
             font-family: 'Playfair Display', serif;
-            font-size: clamp(2.6rem, 7vw, 4.5rem);
+            font-size: clamp(2.4rem, 7vw, 4rem);
             font-weight: 900;
             line-height: 1.1;
             color: #0A1929;
             margin-bottom: 1rem;
         }
 
-        .hero-quote {
+        .quote {
             border-left: 4px solid var(--blue);
             background: rgba(255,255,255,0.85);
             backdrop-filter: blur(4px);
@@ -93,7 +83,7 @@
             border-radius: 20px;
             font-style: italic;
             font-weight: 500;
-            max-width: 550px;
+            max-width: 600px;
             margin: 1.5rem 0;
             font-size: 1rem;
             box-shadow: 0 8px 25px rgba(0,0,0,0.05);
@@ -103,7 +93,7 @@
             display: flex;
             gap: 1.2rem;
             flex-wrap: wrap;
-            margin-top: 1.8rem;
+            margin-top: 1.5rem;
         }
 
         .stat-bubble {
@@ -124,45 +114,40 @@
         }
 
         .card-glass {
-            background: rgba(255, 255, 255, 0.92);
+            background: rgba(255, 255, 255, 0.94);
             backdrop-filter: blur(4px);
-            border-radius: 32px;
-            padding: 1.8rem;
-            box-shadow: 0 12px 35px rgba(0, 112, 255, 0.08);
-            border: 1px solid rgba(0, 112, 255, 0.2);
-            transition: transform 0.2s ease;
+            border-radius: 28px;
+            padding: 1.5rem;
+            box-shadow: 0 12px 30px rgba(0,112,255,0.08);
+            border: 1px solid rgba(0,112,255,0.15);
+            transition: transform 0.2s;
         }
-        .card-glass:hover { transform: translateY(-6px); }
+        .card-glass:hover { transform: translateY(-4px); }
 
         .rounded-image {
             border-radius: 28px;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+            box-shadow: 0 20px 35px rgba(0,0,0,0.12);
             width: 100%;
             height: auto;
             object-fit: cover;
         }
 
-        .timeline-card {
-            background: rgba(255,255,255,0.08);
-            backdrop-filter: blur(8px);
-            border-radius: 24px;
-            padding: 1.2rem;
-            text-align: center;
-            border: 1px solid rgba(255,255,255,0.2);
-        }
-        .timeline-card h3 { font-size: 1rem; font-weight: 700; margin-top: 0.5rem; }
+        .grid2 { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.8rem; }
+        .grid3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+        .grid4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.2rem; }
 
         .bg-home { background: linear-gradient(135deg, #F0F7FF 0%, #FFFFFF 100%); }
-        .bg-chapitre { background: linear-gradient(145deg, #EFF5FF, #FFFFFF); }
-        .bg-emissions { background: #F8FCFF; }
-        .bg-entre-lignes { background: linear-gradient(125deg, #FFFFFF, #F2F8FF); }
-        .bg-bibliodiversite { background: #F0F6FE; }
-        .bg-engagement { background: linear-gradient(112deg, #0B1E33 0%, #0F2A44 100%); color: white; }
-        .bg-international { background: #F8FAFE; }
-        .bg-expertise-table { background: #FFFFFF; }
-        .bg-impact { background: #F0F6FE; }
+        .bg-double { background: linear-gradient(145deg, #EFF5FF, #FFFFFF); }
+        .bg-expertise { background: #F8FCFF; }
+        .bg-rayonnement { background: #FFFFFF; }
+        .bg-voix { background: linear-gradient(125deg, #FFFFFF, #F2F8FF); }
+        .bg-agenda { background: #F0F6FE; }
+        .bg-mediation { background: #FFFFFF; }
+        .bg-influence { background: #F8FAFE; }
         .bg-unesco { background: linear-gradient(135deg, #EFF4FF, #FFFFFF); }
-        .bg-contact { background: linear-gradient(135deg, #EFF4FF, #FFFFFF); }
+        .bg-thematiques { background: #F1F6FD; }
+        .bg-contact { background: linear-gradient(125deg, #EDF4FC, #FFFFFF); }
+        .bg-15ans { background: linear-gradient(112deg, #0B1E33 0%, #0F2A44 100%); color: white; }
 
         .table-wrap { background: white; border-radius: 24px; overflow-x: auto; border: 1px solid var(--border-light); margin-top: 1rem; }
         table { width: 100%; border-collapse: collapse; min-width: 500px; }
@@ -174,20 +159,15 @@
 
         @media (max-width: 900px) {
             .bg { padding: 1.5rem 1rem !important; }
-            .cards-grid { grid-template-columns: 1fr !important; gap: 1rem !important; }
+            .grid2, .grid3, .grid4 { grid-template-columns: 1fr !important; gap: 1rem !important; }
             .card-glass { padding: 1rem; }
             .rounded-image { height: 200px !important; }
-            .timeline-card { padding: 0.8rem; }
-            .timeline-card i { font-size: 1.2rem !important; }
-            .timeline-card h3 { font-size: 0.85rem !important; }
             canvas#thematiquesChart { max-width: 200px !important; max-height: 200px !important; }
         }
         @media (max-width: 600px) {
             .stat-bubbles { justify-content: center; }
-            .hero-quote { font-size: 0.85rem; padding: 1rem; }
-            .timeline-grid { grid-template-columns: 1fr !important; }
+            .quote { font-size: 0.85rem; padding: 1rem; }
         }
-        .cards-grid { display: grid; gap: 1.8rem; }
     </style>
 </head>
 <body>
@@ -197,142 +177,120 @@
     <div class="section-content" style="display: flex; flex-direction: column; justify-content: center; min-height: 90vh;">
         <div>
             <div class="hero-badge"><i class="fas fa-microphone-alt"></i> Journaliste Culturelle · Productrice</div>
-            <h1 class="hero-title">Médiation Littéraire &<br>Dialogue Interculturel</h1>
-            <p style="font-size: 1.25rem; color: #4a5b6e; max-width: 550px; margin-bottom: 1.2rem; font-weight: 500;">Dossier Stratégique pour le Secteur Culture de l'UNESCO</p>
-            <div style="margin: 1rem 0 0.5rem;"><strong style="font-size: 1.3rem;">Mame Ndiawar Diallo</strong><br>Journaliste Culturelle | Productrice<br>Présentatrice des programmes <strong>Entre les Lignes</strong> & <strong>Kenkeliba</strong></div>
-            <div class="hero-quote">"La culture n'est pas un luxe, c'est une nécessité vitale pour la construction de sociétés résilientes et éclairées."</div>
-            <div class="stat-bubbles">
-                <div class="stat-bubble"><div class="stat-number">15+</div><div style="font-size:0.8rem;">Années d'expérience</div></div>
-                <div class="stat-bubble"><div class="stat-number">2M+</div><div style="font-size:0.8rem;">Audience cumulée</div></div>
-                <div class="stat-bubble"><div class="stat-number">100%</div><div style="font-size:0.8rem;">Engagement culturel</div></div>
-            </div>
+            <h1 class="hero-title">Le Livre au Cœur de<br>l'Action Culturelle</h1>
+            <p style="font-size: 1.1rem; color: #4a5b6e; max-width: 500px; margin-bottom: 1rem;">Présentation Stratégique pour le Secteur Culture de l'UNESCO</p>
+            <div style="margin: 1rem 0;"><strong style="font-size: 1.3rem;">Mame Ndiawar Diallo</strong><br>Journaliste Culturelle | Productrice<br>Entre les Lignes & Kenkeliba (RTS)</div>
         </div>
     </div>
 </div></div></div></section>
 
-<!-- SECTION 2 - CHAPITRE I : Double Impact Médiatique -->
-<section><div class="outer"><div class="inner"><div class="bg bg-chapitre">
+<!-- SECTION 2 - Double Impact Audiovisuel -->
+<section><div class="outer"><div class="inner"><div class="bg bg-double">
     <div class="section-content">
-        <div class="hero-badge" style="margin-bottom: 0.5rem;">Chapitre I</div>
-        <h2 style="font-size: 2.2rem; font-weight: 800; margin-bottom: 0.5rem;">Double Impact Médiatique</h2>
-        <p style="font-size: 1.2rem; color: #2c3e50; max-width: 700px; margin-bottom: 2rem;">Allier la profondeur de l'analyse littéraire à la force de frappe de la télévision nationale.</p>
-        <div class="cards-grid" style="grid-template-columns: 1fr 1fr;">
-            <div class="card-glass"><i class="fas fa-newspaper" style="font-size: 2rem; color: var(--blue);"></i><h3 style="margin: 1rem 0 0.5rem;">Entre les Lignes</h3><p>Une émission de référence dédiée aux grands entretiens avec les écrivains, les intellectuels et les diplomates. Un espace de réflexion qui soutient activement la bibliodiversité et les industries du livre.</p></div>
-            <div class="card-glass"><i class="fas fa-tv" style="font-size: 2rem; color: var(--blue);"></i><h3 style="margin: 1rem 0 0.5rem;">Kenkeliba (RTS)</h3><p>Ma contribution culturelle hebdomadaire au sein de la matinale leader nationale. Des chroniques dynamiques conçues pour démocratiser la lecture et toucher une audience massive dès le matin.</p></div>
+        <h2 style="font-size: 1.8rem; font-weight: 800; margin-bottom: 1.5rem;">Double Impact Audiovisuel</h2>
+        <div class="grid2">
+            <div class="card-glass"><i class="fas fa-newspaper" style="font-size: 2rem; color: var(--blue);"></i><h3 style="margin: 1rem 0 0.5rem;">Entre les Lignes</h3><p>Une émission de référence dédiée aux grands entretiens avec les intellectuels et diplomates. Un espace de réflexion profonde qui soutient activement la bibliodiversité.</p></div>
+            <div class="card-glass"><i class="fas fa-tv" style="font-size: 2rem; color: var(--blue);"></i><h3 style="margin: 1rem 0 0.5rem;">Kenkeliba (RTS)</h3><p>Chroniques culturelles hebdomadaires au sein de la matinale leader du Sénégal. Des interventions conçues pour démocratiser la lecture auprès d'une audience massive.</p></div>
         </div>
     </div>
 </div></div></div></section>
 
-<!-- SECTION 3 - Une Présence Audiovisuelle Complémentaire -->
-<section><div class="outer"><div class="inner"><div class="bg bg-emissions">
-    <div class="section-content">
-        <h2 style="font-size: 1.8rem; font-weight: 700;">Une Présence Audiovisuelle Complémentaire</h2>
-        <div class="cards-grid" style="grid-template-columns: 1fr 1fr; margin-top: 1.5rem;">
-            <div class="card-glass"><i class="fas fa-book-open" style="font-size: 1.8rem; color: var(--blue);"></i><h3>Entre les Lignes</h3><p>Grands entretiens avec écrivains, intellectuels, diplomates. Soutien actif à la bibliodiversité.</p></div>
-            <div class="card-glass"><i class="fas fa-chalkboard-user" style="font-size: 1.8rem; color: var(--blue);"></i><h3>Kenkeliba (RTS)</h3><p>Chroniques hebdomadaires conçues pour démocratiser la lecture, audience massive dès le matin.</p></div>
-        </div>
+<!-- SECTION 3 - Citation -->
+<section><div class="outer"><div class="inner"><div class="bg bg-home">
+    <div class="section-content" style="display: flex; justify-content: center;">
+        <div class="quote">"Pour moi, la lecture doit être considérée comme un bijou précieux pour chacun ; au-delà d'être une échappatoire, elle unit, inspire et instruit."<br>— Mame Ndiawar Diallo</div>
     </div>
 </div></div></div></section>
 
-<!-- SECTION 4 - Entre les Lignes : L'Espace de la Pensée (avec image) -->
-<section><div class="outer"><div class="inner"><div class="bg bg-entre-lignes">
+<!-- SECTION 4 - 15 Ans d'Expertise Médiale (avec image) -->
+<section><div class="outer"><div class="inner"><div class="bg bg-15ans">
     <div class="section-content" style="display: flex; flex-wrap: wrap; gap: 2rem; align-items: center;">
-        <div style="flex: 1;"><img src="https://images.unsplash.com/photo-1524995997946-a1c2e315a42f?w=800&auto=format" alt="salon littéraire" class="rounded-image" style="height: 280px;"></div>
-        <div style="flex: 1;"><i class="fas fa-microphone-alt" style="font-size: 2rem; color: var(--blue); margin-bottom: 1rem; display: inline-block;"></i><h2 style="font-size: 1.8rem; font-weight: 800;">Entre les Lignes : L'Espace de la Pensée</h2><p>Conçue comme un salon littéraire moderne, cette émission est une plateforme unique de médiation entre les créateurs et le public.</p><ul style="margin-top: 1rem; list-style: none;"><li><i class="fas fa-check-circle" style="color: var(--blue);"></i> Vulgarisation des enjeux littéraires contemporains</li><li><i class="fas fa-check-circle" style="color: var(--blue);"></i> Promotion active de la chaîne de valeur du livre</li><li><i class="fas fa-check-circle" style="color: var(--blue);"></i> Échanges de haut niveau avec des figures diplomatiques</li></ul></div>
+        <div style="flex: 1;"><img src="https://images.unsplash.com/photo-1554200876-907f9286c2a1?w=800&auto=format" alt="Studio télévision" class="rounded-image" style="height: 280px;"></div>
+        <div style="flex: 1;"><h2 style="font-size: 1.8rem; color: white;">15 Ans d'Expertise Médiale</h2><p style="color: #cbd5e1; margin: 1rem 0;">Une légitimité bâtie sur le terrain de la culture et de la diplomatie littéraire au Sénégal et à l'international.</p><ul style="list-style: none;"><li style="margin-bottom: 0.8rem;"><i class="fas fa-check-circle" style="color: var(--blue);"></i> Diplômée en communication et journalisme (ISEG).</li><li style="margin-bottom: 0.8rem;"><i class="fas fa-check-circle" style="color: var(--blue);"></i> Figure de référence pour la critique d'ouvrages à la RTS.</li><li><i class="fas fa-check-circle" style="color: var(--blue);"></i> Médiatrice clé entre créateurs et institutions publiques.</li></ul></div>
     </div>
 </div></div></div></section>
 
-<!-- SECTION 5 - La Bibliodiversité au Quotidien (avec image) -->
-<section><div class="outer"><div class="inner"><div class="bg bg-bibliodiversite">
+<!-- SECTION 5 - Rayonnement International 2026 -->
+<section><div class="outer"><div class="inner"><div class="bg bg-rayonnement">
+    <div class="section-content"><h2 style="font-size: 1.8rem;">Rayonnement International 2026</h2>
+        <div class="grid3" style="margin-top: 1.5rem;">
+            <div class="card-glass"><i class="fas fa-city"></i><h3>Conakry</h3><p>Invitée culturelle à la 18e édition des 72 Heures du Livre, carrefour majeur de la pensée africaine (Avril/Mai).</p></div>
+            <div class="card-glass"><i class="fas fa-globe-europe"></i><h3>Genève</h3><p>Invitée par la Francophonie pour le Printemps de la Francophonie et la Journée Mondiale de l'Afrique (Mai).</p></div>
+            <div class="card-glass"><i class="fas fa-book"></i><h3>MILA 2026</h3><p>Participation programmée en juillet au Marché de l'Industrie du Livre d'Afrique (Abidjan).</p></div>
+        </div>
+    </div>
+</div></div></div></section>
+
+<!-- SECTION 6 - Une Voix Sollicitée (avec image) -->
+<section><div class="outer"><div class="inner"><div class="bg bg-voix">
     <div class="section-content" style="display: flex; flex-wrap: wrap; gap: 2rem; align-items: center; flex-direction: row-reverse;">
-        <div style="flex: 1;"><img src="https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?w=800&auto=format" alt="pile de livres colorés" class="rounded-image" style="height: 260px;"></div>
-        <div style="flex: 1;"><i class="fas fa-globe-africa" style="font-size: 2rem; color: var(--blue);"></i><h2 style="font-size: 1.8rem; font-weight: 800;">La Bibliodiversité au Quotidien</h2><p>Grâce à mes chroniques sur Kenkeliba, nous portons les priorités de la culture au plus près des citoyens.</p><p style="margin-top: 1rem;">Chaque semaine, nous mettons en lumière la richesse des expressions culturelles, favorisant ainsi une meilleure compréhension des enjeux de diversité et de patrimoine immatériel.</p></div>
+        <div style="flex: 1;"><img src="https://images.unsplash.com/photo-1515378960530-7c0da6231fb1?w=800&auto=format" alt="Bibliothèque moderne" class="rounded-image" style="height: 260px;"></div>
+        <div style="flex: 1;"><i class="fas fa-star" style="font-size: 2rem; color: var(--blue); margin-bottom: 1rem; display: inline-block;"></i><h2 style="font-size: 1.8rem;">Une Voix Sollicitée</h2><p style="margin: 1rem 0;">Ma crédibilité s'illustre par des invitations constantes des plus grandes instances littéraires mondiales.</p><p>Notamment l'invitation d'honneur pour la Journée internationale du livre africain, confirmant mon rôle d'interface stratégique pour la promotion des auteurs du continent.</p></div>
     </div>
 </div></div></div></section>
 
-<!-- SECTION 6 - Un Engagement Médial de Longue Date -->
-<section><div class="outer"><div class="inner"><div class="bg bg-engagement">
-    <div class="section-content"><h2 style="font-size: 2rem; color: white;">Un Engagement Médial de Longue Date</h2>
-        <div class="cards-grid" style="grid-template-columns: repeat(4,1fr); margin-top: 2rem; gap: 1rem;">
-            <div class="timeline-card"><i class="fas fa-graduation-cap" style="font-size: 1.5rem; color: #0070FF;"></i><h3 style="color: white;">Formation</h3><p style="color: #cbd5e1;">Diplômée en communication et journalisme (ISEG)</p></div>
-            <div class="timeline-card"><i class="fas fa-tv" style="font-size: 1.5rem; color: #0070FF;"></i><h3 style="color: white;">RTS - Kenkeliba</h3><p style="color: #cbd5e1;">Émergence d'une voix de référence pour la culture</p></div>
-            <div class="timeline-card"><i class="fas fa-podcast" style="font-size: 1.5rem; color: #0070FF;"></i><h3 style="color: white;">Production</h3><p style="color: #cbd5e1;">Lancement et consolidation de "Entre les Lignes"</p></div>
-            <div class="timeline-card"><i class="fas fa-globe" style="font-size: 1.5rem; color: #0070FF;"></i><h3 style="color: white;">Rayonnement</h3><p style="color: #cbd5e1;">Actrice clé de la médiation littéraire internationale</p></div>
+<!-- SECTION 7 - Agenda Stratégique 2026 -->
+<section><div class="outer"><div class="inner"><div class="bg bg-agenda">
+    <div class="section-content"><h2 style="font-size: 1.8rem;">Agenda Stratégique 2026</h2>
+        <div class="grid4" style="margin-top: 1.5rem;">
+            <div class="card-glass"><i class="fas fa-calendar-alt"></i><h3>72H du Livre</h3><p>Invitée culturelle à Conakry (Avril/Mai 2026).</p></div>
+            <div class="card-glass"><i class="fas fa-globe"></i><h3>Genève</h3><p>Printemps de la Francophonie (Mai 2026).</p></div>
+            <div class="card-glass"><i class="fas fa-chart-line"></i><h3>MILA 2026</h3><p>Marché du Livre d'Afrique (Juillet 2026).</p></div>
+            <div class="card-glass"><i class="fas fa-flag-checkered"></i><h3>UNESCO</h3><p>Plaidoyer pour la bibliodiversité africaine.</p></div>
         </div>
     </div>
 </div></div></div></section>
 
-<!-- SECTION 7 - Rayonnement International Récent -->
-<section><div class="outer"><div class="inner"><div class="bg bg-international">
-    <div class="section-content"><h2 style="font-size: 1.8rem;">Rayonnement International Récent</h2>
-        <div class="cards-grid" style="grid-template-columns: repeat(3,1fr); margin-top: 1.5rem;">
-            <div class="card-glass"><i class="fas fa-city"></i><h3>Conakry</h3><p>Invitée d'honneur à la 18e édition des 72 Heures du Livre, carrefour majeur de la pensée africaine.</p></div>
-            <div class="card-glass"><i class="fas fa-globe-europe"></i><h3>Genève</h3><p>Invitée par la Francophonie pour les Journées du Printemps et la Journée Mondiale de l'Afrique.</p></div>
-            <div class="card-glass"><i class="fas fa-handshake"></i><h3>Diplomatie</h3><p>Médiation constante avec les représentations diplomatiques pour valoriser la coopération culturelle.</p></div>
-        </div>
-    </div>
-</div></div></div></section>
-
-<!-- SECTION 8 - Expertise & Publics Cibles (tableau) -->
-<section><div class="outer"><div class="inner"><div class="bg bg-expertise-table">
-    <div class="section-content"><h2 style="font-size: 1.8rem;">Expertise & Publics Cibles</h2>
+<!-- SECTION 8 - Médiation & Publics Cibles (tableau) -->
+<section><div class="outer"><div class="inner"><div class="bg bg-mediation">
+    <div class="section-content"><h2 style="font-size: 1.8rem;">Médiation & Publics Cibles</h2>
         <div class="table-wrap">
             <table><thead><tr><th>Catégorie de Médiation</th><th>Impact Stratégique</th><th>Public Cible</th></tr></thead>
             <tbody>
-                <tr><td>Auteurs & Académiques</td><td>Vulgarisation des connaissances fondamentales</td><td>Étudiants, Chercheurs, Jeunesse</td></tr>
-                <tr><td>Décideurs & Diplomates</td><td>Plaidoyer pour les politiques culturelles</td><td>Institutions, ONG, Ministères</td></tr>
-                <tr><td>Éditeurs & Libraires</td><td>Soutien direct aux industries créatives</td><td>Professionnels du livre</td></tr>
-            </tbody></table>
+                <tr><td>Littéraire & Académique</td><td>Vulgarisation des pensées endogènes</td><td>Étudiants, Chercheurs, Jeunesse</td></tr>
+                <tr><td>Institutionnelle</td><td>Plaidoyer pour les politiques culturelles</td><td>UNESCO, ONG, Ministères</td></tr>
+                <tr><td>Éditoriale</td><td>Soutien direct à la chaîne de valeur</td><td>Éditeurs, Libraires, Bibliothèques</td></tr>
+            </tbody>
+            </table>
         </div>
     </div>
 </div></div></div></section>
 
-<!-- SECTION 9 - Impact & Audience en Chiffres + Chart.js -->
-<section><div class="outer"><div class="inner"><div class="bg bg-impact">
-    <div class="section-content"><h2 style="font-size: 1.8rem; text-align: center;">Impact & Audience en Chiffres</h2>
+<!-- SECTION 9 - Influence & Résonance -->
+<section><div class="outer"><div class="inner"><div class="bg bg-influence">
+    <div class="section-content"><h2 style="font-size: 1.8rem; text-align: center;">Influence & Résonance</h2>
         <div class="stat-bubbles" style="justify-content: center;">
-            <div class="stat-bubble"><div class="stat-number">15+</div><div>Années d'Expérience</div></div>
+            <div class="stat-bubble"><div class="stat-number">15+</div><div>Années d'Expertise</div></div>
             <div class="stat-bubble"><div class="stat-number">2M+</div><div>Audience Cumulée (RTS)</div></div>
             <div class="stat-bubble"><div class="stat-number">100%</div><div>Engagement Culturel</div></div>
         </div>
-        <p style="margin: 1rem 0; text-align: center;">Une présence médiatique constante garantissant une visibilité maximale aux initiatives culturelles.</p>
-    </section>
+        <p style="text-align: center; margin-top: 1rem;">Une présence médiatique continue garantissant une visibilité maximale aux initiatives de l'UNESCO.</p>
+    </div>
+</div></div></div></section>
 
+<!-- SECTION 10 - Synergies UNESCO - Convention 2005 -->
+<section><div class="outer"><div class="inner"><div class="bg bg-unesco">
+    <div class="section-content"><h2 style="font-size: 1.8rem;">Synergies UNESCO - Convention 2005</h2>
+        <div class="grid2" style="margin-top: 1.5rem;">
+            <div class="card-glass"><i class="fas fa-flag-checkered"></i><h3>Priorité Afrique</h3><p>Valorisation systématique des industries créatives et des récits du continent africain.</p></div>
+            <div class="card-glass"><i class="fas fa-book-open"></i><h3>Bibliodiversité</h3><p>Protection et promotion de la diversité des expressions culturelles à travers le livre.</p></div>
+            <div class="card-glass"><i class="fas fa-venus-mars"></i><h3>Égalité des Genres</h3><p>Mise en avant régulière des autrices et des femmes actrices du secteur culturel.</p></div>
+        </div>
+    </div>
+</div></div></div></section>
 
-    <section><div class="outer"><div class="inner"><div class="bg bg-impact">
-        <div class="section-content"><h2 style="font-size: 1.8rem; text-align: center;">Impact par Thématiques Culturelles</h2>
-      
-        <div style="display: flex; flex-wrap: wrap; gap: 2rem; align-items: center; justify-content: center;">
+<!-- SECTION 11 - Impact par Thématiques Culturelles + Chart.js -->
+<section><div class="outer"><div class="inner"><div class="bg bg-thematiques">
+    <div class="section-content"><h2 style="font-size: 1.8rem; text-align: center;">Impact par Thématiques Culturelles</h2>
+        <div style="display: flex; flex-wrap: wrap; gap: 2rem; align-items: center; justify-content: center; margin-top: 1.5rem;">
             <div style="flex:1; min-width:220px; display: flex; justify-content: center;"><canvas id="thematiquesChart" width="300" height="300" style="max-width: 230px; max-height: 230px;"></canvas></div>
             <div style="flex:1">
                 <div><div>Littérature & Pensée (45%)</div><div class="progress-bar"><div class="progress-fill" style="width:45%"></div></div></div>
-                <div style="margin:1rem 0"><div>Arts Visuels & Patrimoine (30%)</div><div class="progress-bar"><div class="progress-fill" style="width:30%"></div></div></div>
+                <div style="margin:1.2rem 0"><div>Arts Visuels & Patrimoine (30%)</div><div class="progress-bar"><div class="progress-fill" style="width:30%"></div></div></div>
                 <div><div>Politiques Culturelles (25%)</div><div class="progress-bar"><div class="progress-fill" style="width:25%"></div></div></div>
-                <p class="hero-quote" style="margin-top: 1rem; font-size:0.8rem;">Une répartition équilibrée pour couvrir l'ensemble des piliers de la Convention de 2005.</p>
+                <p class="quote" style="margin-top: 1.5rem; font-size:0.85rem;">Une répartition équilibrée pour couvrir l'ensemble des piliers de la Convention de 2005.</p>
             </div>
         </div>
-    </div>
-</div></div></div></section>
-
-<!-- SECTION 10 - Synergies avec les Priorités de l'UNESCO -->
-<section><div class="outer"><div class="inner"><div class="bg bg-unesco">
-    <div class="section-content"><h2 style="font-size: 1.8rem;">Synergies avec les Priorités de l'UNESCO</h2>
-        <div class="cards-grid" style="grid-template-columns: repeat(2,1fr); margin: 1.5rem 0;">
-            <div class="card-glass"><i class="fas fa-flag-checkered"></i><h3>Priorité Afrique</h3><p>Valorisation systématique des industries créatives locales et des récits du continent.</p></div>
-            <div class="card-glass"><i class="fas fa-fist-raised"></i><h3>Diversité des Expressions</h3><p>Protection et promotion de la bibliodiversité à travers une critique littéraire exigeante.</p></div>
-            <div class="card-glass"><i class="fas fa-venus-mars"></i><h3>Égalité des Genres</h3><p>Mise en avant régulière des autrices et des femmes actrices du secteur culturel africain.</p></div>
-            <div class="card-glass"><i class="fas fa-graduation-cap"></i><h3>Éducation aux Médias</h3><p>Formation du public à l'esprit critique par le biais de l'analyse littéraire.</p></div>
-        </div>
-    </div>
-</div></div></div></section>
-
-<!-- SECTION 11 - Récapitulatif -->
-<section><div class="outer"><div class="inner"><div class="bg bg-expertise-table">
-    <div class="section-content">
-        <div class="hero-badge">Médiation Littéraire & Dialogue Interculturel</div>
-        <h2 style="font-size: 1.6rem;">Mame Ndiawar Diallo</h2>
-        <p>Journaliste Culturelle | Productrice | Présentatrice Entre les Lignes & Kenkeliba</p>
-        <div class="stat-bubbles" style="margin-top: 1rem;"><div class="stat-bubble"><div class="stat-number">15+</div><div>Années</div></div><div class="stat-bubble"><div class="stat-number">2M+</div><div>Audience</div></div><div class="stat-bubble"><div class="stat-number">100%</div><div>Engagement</div></div></div>
     </div>
 </div></div></div></section>
 
@@ -346,8 +304,6 @@
             <div class="card-glass" style="display: inline-block;"><i class="far fa-envelope"></i> contact@mamendiawar.com</div>
             <div class="card-glass" style="display: inline-block;"><i class="fas fa-globe"></i> www.rtssenegal.sn</div>
         </div>
-        <div class="hero-quote" style="display: inline-block; text-align: left;">Dossier stratégique – Secteur Culture UNESCO</div>
-        <div style="margin-top: 1.5rem; font-size: 0.8rem;">Mame Ndiawar Diallo · Journaliste Culturelle, Productrice</div>
     </div>
 </div></div></div></section>
 
