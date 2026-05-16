@@ -1,268 +1,329 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Le Livre & Dialogue Interculturel - Press Book</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800;900&family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
-  <style>
-    body { font-family: 'Inter', sans-serif; }
-    .serif { font-family: 'Playfair Display', serif; }
-    @media print {
-      .no-print { display: none !important; }
-      section { page-break-inside: avoid; }
-      body { background: #fff !important; }
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes, viewport-fit=cover">
+    <title>Mame Ndiawar Diallo | Le Livre au Cœur de l'Action Culturelle – UNESCO</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700;800&family=Syne:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+    
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Space Grotesk', sans-serif;
+            background: #0A0F1E;
+            color: #E8EDF5;
+            overflow-x: hidden;
+        }
+
+        html {
+            scroll-snap-type: y mandatory;
+            scroll-behavior: smooth;
+        }
+
+        section {
+            scroll-snap-align: start;
+            scroll-snap-stop: always;
+            min-height: 100vh;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+
+        .outer, .inner { width: 100%; height: 100%; }
+        .bg {
+            min-height: 100vh;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 4rem 2rem;
+        }
+        .section-content { max-width: 1400px; width: 100%; margin: 0 auto; }
+
+        /* Gradient moderne */
+        .gradient-bg-1 { background: radial-gradient(ellipse at 20% 30%, #0F172A, #020617, #030014); }
+        .gradient-bg-2 { background: radial-gradient(ellipse at 80% 20%, #0B1120, #03050B, #0A0F1A); }
+        .gradient-bg-3 { background: linear-gradient(145deg, #0B0F1C 0%, #070B16 100%); }
+        .gradient-bg-blue { background: radial-gradient(circle at 10% 40%, #0A1628, #03050C); }
+        
+        /* Texte gradient */
+        .gradient-text {
+            background: linear-gradient(135deg, #67e8f9, #ffffff, #38bdf8, #818cf8);
+            background-size: 200% auto;
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: shimmer 4s linear infinite;
+        }
+        @keyframes shimmer { 0% { background-position: 0% 50%; } 100% { background-position: 200% 50%; } }
+
+        .gradient-text-gold {
+            background: linear-gradient(135deg, #FDE047, #FEF08A, #EAB308, #FDE047);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero-title {
+            font-family: 'Syne', sans-serif;
+            font-size: clamp(3rem, 9vw, 5.5rem);
+            font-weight: 800;
+            line-height: 1.1;
+            letter-spacing: -0.02em;
+        }
+
+        .hero-sub {
+            font-size: 1.15rem;
+            color: #94A3B8;
+            max-width: 550px;
+            margin-top: 1rem;
+        }
+
+        .glow-card {
+            background: rgba(15, 23, 42, 0.6);
+            backdrop-filter: blur(12px);
+            border-radius: 2rem;
+            border: 1px solid rgba(56, 189, 248, 0.2);
+            transition: all 0.3s ease;
+            box-shadow: 0 25px 40px -12px rgba(0,0,0,0.4);
+        }
+        .glow-card:hover {
+            border-color: rgba(56, 189, 248, 0.5);
+            box-shadow: 0 30px 50px -15px rgba(56,189,248,0.2);
+            transform: translateY(-5px);
+        }
+
+        .badge-modern {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(56, 189, 248, 0.12);
+            border: 1px solid rgba(56, 189, 248, 0.3);
+            border-radius: 100px;
+            padding: 0.5rem 1.2rem;
+            font-size: 0.75rem;
+            font-weight: 500;
+            color: #38BDF8;
+            letter-spacing: 0.05em;
+        }
+
+        .quote-modern {
+            background: linear-gradient(135deg, rgba(56,189,248,0.08), rgba(129,140,248,0.05));
+            border-left: 4px solid #38BDF8;
+            border-radius: 1.5rem;
+            padding: 2rem 2rem;
+            margin: 1.5rem 0;
+            font-family: 'Syne', serif;
+            font-size: 1.2rem;
+            font-style: normal;
+            font-weight: 400;
+            color: #CBD5E1;
+            backdrop-filter: blur(4px);
+        }
+
+        .stat-number-lg {
+            font-size: 2.5rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, #38BDF8, #A78BFA);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .grid2 { display: grid; grid-template-columns: repeat(2, 1fr); gap: 2rem; }
+        .grid3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; }
+        .grid4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem; }
+
+        .rounded-image {
+            border-radius: 1.8rem;
+            box-shadow: 0 25px 45px -12px rgba(0,0,0,0.5);
+            width: 100%;
+            height: auto;
+            object-fit: cover;
+            border: 1px solid rgba(56,189,248,0.2);
+        }
+
+        .table-wrap {
+            background: rgba(15, 23, 42, 0.6);
+            backdrop-filter: blur(8px);
+            border-radius: 1.5rem;
+            overflow-x: auto;
+            border: 1px solid rgba(56,189,248,0.2);
+        }
+        table { width: 100%; border-collapse: collapse; }
+        th { background: rgba(56, 189, 248, 0.15); color: #38BDF8; padding: 1rem; font-weight: 600; }
+        td { padding: 1rem; border-bottom: 1px solid rgba(56,189,248,0.1); color: #CBD5E1; }
+
+        .progress-bar { background: #1E293B; border-radius: 20px; height: 8px; overflow: hidden; }
+        .progress-fill { background: linear-gradient(90deg, #38BDF8, #A78BFA); height: 100%; border-radius: 20px; }
+
+        @media (max-width: 1000px) {
+            .bg { padding: 2rem 1.2rem; }
+            .grid2, .grid3, .grid4 { grid-template-columns: 1fr !important; gap: 1rem !important; }
+            .rounded-image { height: 220px !important; }
+            .stat-number-lg { font-size: 1.8rem; }
+            canvas#thematiquesChart { max-width: 200px !important; max-height: 200px !important; }
+        }
+        @media (min-width: 1600px) {
+            .hero-title { font-size: 6rem; }
+            .section-content { max-width: 1600px; }
+            .glow-card { padding: 2.2rem; }
+        }
+    </style>
 </head>
-<body class="bg-stone-100 text-stone-950">
+<body>
 
-  <div class="no-print fixed bottom-5 right-5 z-50">
-    <button onclick="window.print()" class="rounded-full bg-amber-700 px-5 py-3 text-white font-bold shadow-lg hover:bg-amber-800">
-      Télécharger en PDF
-    </button>
-  </div>
-
-  <main class="mx-auto max-w-6xl bg-white shadow-2xl">
-
-    <!-- HERO -->
-    <section class="relative min-h-screen overflow-hidden bg-[#18120c] text-white px-8 md:px-16 py-12 flex flex-col justify-between">
-      <div class="absolute inset-0 opacity-40 bg-[radial-gradient(circle_at_top_left,#b45309,transparent_35%),radial-gradient(circle_at_bottom_right,#f59e0b,transparent_28%)]"></div>
-      <div class="absolute inset-0 bg-gradient-to-b from-black/10 via-black/20 to-black/70"></div>
-
-      <header class="relative z-10 flex justify-between items-start gap-6">
+<!-- SECTION 1 - COUVERTURE -->
+<section><div class="outer"><div class="inner"><div class="bg gradient-bg-1">
+    <div class="section-content">
         <div>
-          <p class="text-amber-300 font-black uppercase tracking-[0.32em] text-sm">Press-Book Professionnel</p>
-          <p class="mt-3 text-stone-300">Destiné au Secteur de la Culture de l'UNESCO</p>
+            <div class="badge-modern"><i class="fas fa-microphone-alt"></i> Journaliste Culturelle · Productrice</div>
+            <h1 class="hero-title gradient-text" style="margin: 1.5rem 0 0.5rem;">Le Livre au Cœur<br>de l'Action Culturelle</h1>
+            <p class="hero-sub">Présentation Stratégique pour le Secteur Culture de l'UNESCO</p>
+            <div style="margin: 2rem 0;"><strong style="font-size: 1.4rem; color: #E2E8F0;">Mame Ndiawar Diallo</strong><br style="margin: 0.2rem 0;">Journaliste Culturelle | Productrice<br>Entre les Lignes & Kenkeliba (RTS)</div>
         </div>
-        <div class="rounded-2xl border border-white/20 bg-white/10 px-5 py-3 text-sm font-bold">Culture · Livre · Dialogue</div>
-      </header>
+    </div>
+</div></div></div></section>
 
-      <div class="relative z-10 max-w-5xl py-20">
-        <p class="text-amber-300 font-black uppercase tracking-[0.3em] mb-6">Dossier stratégique de présentation</p>
-        <h1 class="serif text-5xl md:text-7xl font-black leading-[0.95]">Le Livre &<br>Dialogue Interculturel</h1>
-        <p class="mt-8 max-w-3xl text-xl md:text-2xl text-stone-200 leading-relaxed">
-          L'alliance entre la médiation médiatique et la préservation de la diversité culturelle.
-        </p>
-      </div>
+<!-- SECTION 2 - Double Impact Audiovisuel -->
+<section><div class="outer"><div class="inner"><div class="bg gradient-bg-2">
+    <div class="section-content">
+        <h2 class="gradient-text" style="font-size: clamp(2rem, 5vw, 2.8rem); font-weight: 700; margin-bottom: 2rem;">Double Impact Audiovisuel</h2>
+        <div class="grid2">
+            <div class="glow-card" style="padding: 2rem;"><i class="fas fa-newspaper" style="font-size: 2.5rem; color: #38BDF8;"></i><h3 style="font-size: 1.5rem; margin: 1rem 0 0.75rem;">Entre les Lignes</h3><p style="color: #94A3B8;">Une émission de référence dédiée aux grands entretiens avec les intellectuels et diplomates. Un espace de réflexion profonde qui soutient activement la bibliodiversité.</p></div>
+            <div class="glow-card" style="padding: 2rem;"><i class="fas fa-tv" style="font-size: 2.5rem; color: #38BDF8;"></i><h3 style="font-size: 1.5rem; margin: 1rem 0 0.75rem;">Kenkeliba (RTS)</h3><p style="color: #94A3B8;">Chroniques culturelles hebdomadaires au sein de la matinale leader du Sénégal. Des interventions conçues pour démocratiser la lecture auprès d'une audience massive.</p></div>
+        </div>
+    </div>
+</div></div></div></section>
 
-      <div class="relative z-10 grid md:grid-cols-3 gap-4 text-sm">
-        <div class="rounded-2xl bg-white/10 border border-white/10 p-5">
-          <p class="text-amber-200 font-bold">Porteuse du projet</p>
-          <p class="mt-2">[Votre Nom]</p>
+<!-- SECTION 3 - Citation avec icônes -->
+<section><div class="outer"><div class="inner"><div class="bg gradient-bg-blue">
+    <div class="section-content" style="display: flex; justify-content: center;">
+        <div class="quote-modern" style="max-width: 800px; text-align: center;">
+            <i class="fas fa-quote-left" style="font-size: 2.5rem; color: #38BDF8; opacity: 0.6; margin-bottom: 1rem; display: block;"></i>
+            <p style="font-size: 1.3rem; font-weight: 400;">"Pour moi, la lecture doit être considérée comme un bijou précieux pour chacun ; au-delà d'être une échappatoire, elle unit, inspire et instruit."</p>
+            <div style="margin-top: 1rem;"><i class="fas fa-microphone-alt" style="color: #38BDF8; margin-right: 0.5rem;"></i> — Mame Ndiawar Diallo</div>
         </div>
-        <div class="rounded-2xl bg-white/10 border border-white/10 p-5">
-          <p class="text-amber-200 font-bold">Profil</p>
-          <p class="mt-2">Journaliste Culturelle</p>
-        </div>
-        <div class="rounded-2xl bg-white/10 border border-white/10 p-5">
-          <p class="text-amber-200 font-bold">Référence média</p>
-          <p class="mt-2">Anciennement RTS · Kenkeliba</p>
-        </div>
-      </div>
-    </section>
+    </div>
+</div></div></div></section>
 
-    <!-- CHAPITRE I -->
-    <section class="px-8 md:px-16 py-16">
-      <div class="border-l-4 border-amber-700 pl-6">
-        <p class="text-amber-700 font-black uppercase tracking-[0.3em]">Chapitre I</p>
-        <h2 class="serif mt-3 text-4xl md:text-5xl font-black">Vision & Engagement</h2>
-        <p class="mt-5 text-xl text-stone-600 max-w-3xl">
-          L'alliance entre la médiation médiatique et la préservation de la diversité culturelle.
-        </p>
-      </div>
-    </section>
+<!-- SECTION 4 - 15 Ans d'Expertise Médiale (image) -->
+<section><div class="outer"><div class="inner"><div class="bg gradient-bg-3">
+    <div class="section-content" style="display: flex; flex-wrap: wrap; gap: 3rem; align-items: center;">
+        <div style="flex: 1;"><img src="https://images.unsplash.com/photo-1554200876-907f9286c2a1?w=800&auto=format" alt="Studio TV" class="rounded-image"></div>
+        <div style="flex: 1;"><h2 class="gradient-text" style="font-size: 2rem;">15 Ans d'Expertise Médiale</h2><p style="color: #94A3B8; margin: 1rem 0;">Une légitimité bâtie sur le terrain de la culture et de la diplomatie littéraire au Sénégal et à l'international.</p><ul style="list-style: none;"><li style="margin-bottom: 0.8rem;"><i class="fas fa-check-circle" style="color: #38BDF8;"></i> Diplômée en communication et journalisme (ISEG).</li><li style="margin-bottom: 0.8rem;"><i class="fas fa-check-circle" style="color: #38BDF8;"></i> Figure de référence pour la critique d'ouvrages à la RTS.</li><li><i class="fas fa-check-circle" style="color: #38BDF8;"></i> Médiatrice clé entre créateurs et institutions publiques.</li></ul></div>
+    </div>
+</div></div></div></section>
 
-    <!-- CONCEPT -->
-    <section class="px-8 md:px-16 py-16 bg-stone-50">
-      <p class="text-amber-700 font-black uppercase tracking-[0.25em]">Concept & Mission éditoriale</p>
-      <div class="mt-8 grid md:grid-cols-2 gap-6">
-        <article class="rounded-3xl bg-white border border-stone-200 p-8 shadow-sm">
-          <h3 class="serif text-3xl font-black">Concept Éditorial</h3>
-          <p class="mt-5 text-stone-700 leading-8">
-            Une plateforme de décryptage littéraire qui transforme l'actualité des livres en enjeux de société. Notre approche privilégie la profondeur et le recul critique sur les œuvres.
-          </p>
-        </article>
-        <article class="rounded-3xl bg-[#18120c] text-white p-8 shadow-sm">
-          <h3 class="serif text-3xl font-black">Mission Institutionnelle</h3>
-          <p class="mt-5 text-stone-200 leading-8">
-            Promouvoir la bibliodiversité et garantir l'accès de tous à la pensée contemporaine, en parfaite adéquation avec la Convention de l'UNESCO de 2005.
-          </p>
-        </article>
-      </div>
-    </section>
+<!-- SECTION 5 - Rayonnement International 2026 -->
+<section><div class="outer"><div class="inner"><div class="bg gradient-bg-1">
+    <div class="section-content"><h2 class="gradient-text" style="font-size: 2rem;">Rayonnement International 2026</h2>
+        <div class="grid3" style="margin-top: 2rem;">
+            <div class="glow-card" style="padding: 1.8rem;"><i class="fas fa-city" style="font-size: 2rem; color: #38BDF8;"></i><h3 style="margin: 1rem 0 0.5rem;">Conakry</h3><p style="color:#94A3B8;">Invitée culturelle à la 18e édition des 72 Heures du Livre (Avril/Mai).</p></div>
+            <div class="glow-card" style="padding: 1.8rem;"><i class="fas fa-globe-europe" style="font-size: 2rem; color: #38BDF8;"></i><h3 style="margin: 1rem 0 0.5rem;">Genève</h3><p style="color:#94A3B8;">Invitée par la Francophonie pour le Printemps et la Journée Mondiale de l'Afrique (Mai).</p></div>
+            <div class="glow-card" style="padding: 1.8rem;"><i class="fas fa-book" style="font-size: 2rem; color: #38BDF8;"></i><h3 style="margin: 1rem 0 0.5rem;">MILA 2026</h3><p style="color:#94A3B8;">Participation au Marché de l'Industrie du Livre d'Afrique (Abidjan, Juillet).</p></div>
+        </div>
+    </div>
+</div></div></div></section>
 
-    <!-- EXPERTISE -->
-    <section class="px-8 md:px-16 py-16">
-      <div class="grid md:grid-cols-2 gap-10 items-center">
-        <div>
-          <p class="text-amber-700 font-black uppercase tracking-[0.25em]">Expertise RTS / Kenkeliba</p>
-          <h2 class="serif mt-4 text-4xl font-black">Une relation de confiance avec le public</h2>
-          <p class="mt-6 text-stone-700 leading-8">
-            Forte d'une expérience de plusieurs années au sein de la chaîne nationale RTS, à travers Kenkeliba, la porteuse du projet a bâti une relation de confiance avec le public.
-          </p>
-          <ul class="mt-6 space-y-3 text-stone-700">
-            <li class="flex gap-3"><span class="text-amber-700 font-black">◆</span> Vulgarisation de la pensée littéraire africaine.</li>
-            <li class="flex gap-3"><span class="text-amber-700 font-black">◆</span> Interface entre institutions et grand public.</li>
-            <li class="flex gap-3"><span class="text-amber-700 font-black">◆</span> Expertise reconnue en critique d'ouvrages majeurs.</li>
-          </ul>
-        </div>
-        <div class="rounded-[2rem] bg-stone-200 min-h-[360px] flex items-center justify-center text-stone-500 text-center p-8">
-          Journaliste en studio professionnel<br><span class="text-sm">Image à remplacer</span>
-        </div>
-      </div>
-    </section>
+<!-- SECTION 6 - Une Voix Sollicitée (image) -->
+<section><div class="outer"><div class="inner"><div class="bg gradient-bg-2">
+    <div class="section-content" style="display: flex; flex-wrap: wrap; gap: 3rem; align-items: center; flex-direction: row-reverse;">
+        <div style="flex: 1;"><img src="https://images.unsplash.com/photo-1515378960530-7c0da6231fb1?w=800&auto=format" alt="Bibliothèque" class="rounded-image"></div>
+        <div style="flex: 1;"><i class="fas fa-star" style="font-size: 2.5rem; color: #FDE047;"></i><h2 class="gradient-text-gold" style="font-size: 2rem; margin: 1rem 0;">Une Voix Sollicitée</h2><p style="color:#94A3B8;">Ma crédibilité s'illustre par des invitations constantes des plus grandes instances littéraires mondiales.</p><p style="margin-top: 1rem; color:#CBD5E1;">Notamment l'invitation d'honneur pour la Journée internationale du livre africain, confirmant mon rôle d'interface stratégique pour la promotion des auteurs du continent.</p></div>
+    </div>
+</div></div></div></section>
 
-    <!-- VOIX DES CREATEURS -->
-    <section class="px-8 md:px-16 py-16 bg-[#18120c] text-white">
-      <div class="grid md:grid-cols-2 gap-10 items-center">
-        <div class="rounded-[2rem] bg-white/10 border border-white/10 min-h-[360px] flex items-center justify-center text-stone-300 text-center p-8">
-          Bibliothèque littéraire moderne<br><span class="text-sm">Image à remplacer</span>
+<!-- SECTION 7 - Agenda Stratégique 2026 -->
+<section><div class="outer"><div class="inner"><div class="bg gradient-bg-blue">
+    <div class="section-content"><h2 class="gradient-text" style="font-size: 2rem;">Agenda Stratégique 2026</h2>
+        <div class="grid4" style="margin-top: 2rem;">
+            <div class="glow-card" style="text-align: center; padding: 1.5rem;"><i class="fas fa-calendar-alt" style="font-size: 1.8rem; color: #38BDF8;"></i><h3>72H du Livre</h3><p style="font-size:0.85rem;">Conakry (Avril/Mai 2026)</p></div>
+            <div class="glow-card" style="text-align: center; padding: 1.5rem;"><i class="fas fa-globe" style="font-size: 1.8rem; color: #38BDF8;"></i><h3>Genève</h3><p style="font-size:0.85rem;">Printemps de la Francophonie (Mai)</p></div>
+            <div class="glow-card" style="text-align: center; padding: 1.5rem;"><i class="fas fa-chart-line" style="font-size: 1.8rem; color: #38BDF8;"></i><h3>MILA 2026</h3><p style="font-size:0.85rem;">Abidjan (Juillet 2026)</p></div>
+            <div class="glow-card" style="text-align: center; padding: 1.5rem;"><i class="fas fa-flag-checkered" style="font-size: 1.8rem; color: #38BDF8;"></i><h3>UNESCO</h3><p style="font-size:0.85rem;">Plaidoyer bibliodiversité africaine</p></div>
         </div>
-        <div>
-          <p class="text-amber-300 font-black uppercase tracking-[0.25em]">La voix des créateurs</p>
-          <h2 class="serif mt-4 text-4xl font-black">Mettre en lumière la richesse des expressions culturelles</h2>
-          <p class="mt-6 text-stone-200 leading-8">
-            Notre mission est de mettre en lumière la richesse des expressions culturelles à travers des entretiens exclusifs.
-          </p>
-          <div class="mt-8 rounded-3xl bg-white text-stone-950 p-8">
-            <p class="text-5xl font-black text-amber-700">100+</p>
-            <p class="mt-3 text-lg font-semibold">
-              Plus de 100 auteurs, éditeurs et acteurs culturels ont déjà partagé leur vision sur notre plateau, créant une archive vivante de la pensée contemporaine.
-            </p>
-          </div>
-        </div>
-      </div>
-    </section>
+    </div>
+</div></div></div></section>
 
-    <!-- PILIERS -->
-    <section class="px-8 md:px-16 py-16">
-      <p class="text-amber-700 font-black uppercase tracking-[0.25em]">Piliers de la démarche</p>
-      <h2 class="serif mt-4 text-4xl font-black">Une démarche culturelle, éducative et institutionnelle</h2>
-      <div class="mt-8 grid md:grid-cols-3 gap-6">
-        <article class="rounded-3xl bg-stone-50 border border-stone-200 p-8">
-          <h3 class="text-2xl font-black">Rigueur</h3>
-          <p class="mt-4 text-stone-700 leading-7">Une éthique journalistique stricte au service d'une information culturelle de haute qualité.</p>
-        </article>
-        <article class="rounded-3xl bg-stone-50 border border-stone-200 p-8">
-          <h3 class="text-2xl font-black">Diversité</h3>
-          <p class="mt-4 text-stone-700 leading-7">Promotion active des langues et des cultures du continent africain, avec une priorité donnée à l'Afrique.</p>
-        </article>
-        <article class="rounded-3xl bg-stone-50 border border-stone-200 p-8">
-          <h3 class="text-2xl font-black">Éducation</h3>
-          <p class="mt-4 text-stone-700 leading-7">Soutien direct aux politiques d'alphabétisation et d'éducation aux médias.</p>
-        </article>
-      </div>
-      <blockquote class="mt-10 rounded-3xl bg-amber-50 border-l-4 border-amber-700 p-8">
-        <p class="serif text-2xl md:text-3xl font-black leading-snug">
-          “La culture n'est pas un luxe, c'est une nécessité vitale pour la construction de sociétés résilientes et éclairées.”
-        </p>
-        <footer class="mt-4 text-stone-600 font-semibold">— Vision portée par l'émission [Nom]</footer>
-      </blockquote>
-    </section>
+<!-- SECTION 8 - Médiation & Publics Cibles -->
+<section><div class="outer"><div class="inner"><div class="bg gradient-bg-3">
+    <div class="section-content"><h2 class="gradient-text" style="font-size: 2rem;">Médiation & Publics Cibles</h2>
+        <div class="table-wrap"><table><thead><tr><th>Catégorie de Médiation</th><th>Impact Stratégique</th><th>Public Cible</th></tr></thead>
+        <tbody><tr><td>Littéraire & Académique</td><td>Vulgarisation des pensées endogènes</td><td>Étudiants, Chercheurs, Jeunesse</td></tr>
+        <tr><td>Institutionnelle</td><td>Plaidoyer pour les politiques culturelles</td><td>UNESCO, ONG, Ministères</td></tr>
+        <tr><td>Éditoriale</td><td>Soutien direct à la chaîne de valeur</td><td>Éditeurs, Libraires, Bibliothèques</td></tr></tbody></table></div>
+    </div>
+</div></div></div></section>
 
-    <!-- PARCOURS -->
-    <section class="px-8 md:px-16 py-16 bg-stone-50">
-      <p class="text-amber-700 font-black uppercase tracking-[0.25em]">Parcours & Press-Book</p>
-      <h2 class="serif mt-4 text-4xl font-black">Un parcours au service du livre et de la culture</h2>
-      <div class="mt-10 grid md:grid-cols-4 gap-5">
-        <div class="rounded-3xl bg-white p-6 border border-stone-200 shadow-sm">
-          <p class="text-amber-700 font-black">01</p>
-          <h3 class="mt-3 text-xl font-black">Formation</h3>
-          <p class="mt-3 text-stone-600">Journalisme spécialisé en enjeux culturels.</p>
+<!-- SECTION 9 - Influence & Résonance -->
+<section><div class="outer"><div class="inner"><div class="bg gradient-bg-1">
+    <div class="section-content"><h2 class="gradient-text" style="font-size: 2rem; text-align: center;">Influence & Résonance</h2>
+        <div style="display: flex; flex-wrap: wrap; gap: 2rem; justify-content: center; margin: 2rem 0;">
+            <div class="glow-card" style="text-align: center; padding: 1.8rem; min-width: 150px;"><div class="stat-number-lg">15+</div><div>Années d'Expertise</div></div>
+            <div class="glow-card" style="text-align: center; padding: 1.8rem; min-width: 150px;"><div class="stat-number-lg">2M+</div><div>Audience Cumulée (RTS)</div></div>
+            <div class="glow-card" style="text-align: center; padding: 1.8rem; min-width: 150px;"><div class="stat-number-lg">100%</div><div>Engagement Culturel</div></div>
         </div>
-        <div class="rounded-3xl bg-white p-6 border border-stone-200 shadow-sm">
-          <p class="text-amber-700 font-black">02</p>
-          <h3 class="mt-3 text-xl font-black">RTS - Kenkeliba</h3>
-          <p class="mt-3 text-stone-600">Référence nationale pour les chroniques littéraires.</p>
-        </div>
-        <div class="rounded-3xl bg-white p-6 border border-stone-200 shadow-sm">
-          <p class="text-amber-700 font-black">03</p>
-          <h3 class="mt-3 text-xl font-black">Production</h3>
-          <p class="mt-3 text-stone-600">Lancement de l'émission indépendante [Nom].</p>
-        </div>
-        <div class="rounded-3xl bg-white p-6 border border-stone-200 shadow-sm">
-          <p class="text-amber-700 font-black">04</p>
-          <h3 class="mt-3 text-xl font-black">Rayonnement</h3>
-          <p class="mt-3 text-stone-600">Partenariats avec des foires internationales.</p>
-        </div>
-      </div>
-    </section>
+        <p style="text-align: center; color: #94A3B8;">Une présence médiatique continue garantissant une visibilité maximale aux initiatives de l'UNESCO.</p>
+    </div>
+</div></div></div></section>
 
-    <!-- RENCONTRES -->
-    <section class="px-8 md:px-16 py-16">
-      <p class="text-amber-700 font-black uppercase tracking-[0.25em]">Rencontres clés & publics</p>
-      <h2 class="serif mt-4 text-4xl font-black">Des contenus pensés pour plusieurs publics</h2>
-      <div class="mt-8 overflow-hidden rounded-3xl border border-stone-200">
-        <table class="w-full text-left">
-          <thead class="bg-[#18120c] text-white">
-            <tr>
-              <th class="p-5">Catégorie</th>
-              <th class="p-5">Impact Stratégique</th>
-              <th class="p-5">Public Cible</th>
-            </tr>
-          </thead>
-          <tbody class="divide-y divide-stone-200">
-            <tr>
-              <td class="p-5 font-bold">Auteurs & Académiques</td>
-              <td class="p-5 text-stone-700">Diffusion des connaissances fondamentales</td>
-              <td class="p-5 text-stone-700">Étudiants, Chercheurs</td>
-            </tr>
-            <tr class="bg-stone-50">
-              <td class="p-5 font-bold">Décideurs & Diplomates</td>
-              <td class="p-5 text-stone-700">Plaidoyer pour les politiques culturelles</td>
-              <td class="p-5 text-stone-700">Institutions, ONG</td>
-            </tr>
-            <tr>
-              <td class="p-5 font-bold">Éditeurs & Libraires</td>
-              <td class="p-5 text-stone-700">Soutien aux industries créatives locales</td>
-              <td class="p-5 text-stone-700">Professionnels du livre</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-    </section>
+<!-- SECTION 10 - Synergies UNESCO -->
+<section><div class="outer"><div class="inner"><div class="bg gradient-bg-2">
+    <div class="section-content"><h2 class="gradient-text" style="font-size: 2rem;">Synergies UNESCO - Convention 2005</h2>
+        <div class="grid2" style="margin-top: 2rem;">
+            <div class="glow-card" style="padding: 1.8rem;"><i class="fas fa-flag-checkered" style="font-size: 2rem; color: #38BDF8;"></i><h3>Priorité Afrique</h3><p>Valorisation systématique des industries créatives et des récits du continent africain.</p></div>
+            <div class="glow-card" style="padding: 1.8rem;"><i class="fas fa-book-open" style="font-size: 2rem; color: #38BDF8;"></i><h3>Bibliodiversité</h3><p>Protection et promotion de la diversité des expressions culturelles à travers le livre.</p></div>
+            <div class="glow-card" style="padding: 1.8rem;"><i class="fas fa-venus-mars" style="font-size: 2rem; color: #38BDF8;"></i><h3>Égalité des Genres</h3><p>Mise en avant régulière des autrices et des femmes actrices du secteur culturel.</p></div>
+        </div>
+    </div>
+</div></div></div></section>
 
-    <!-- IMPACT -->
-    <section class="px-8 md:px-16 py-16 bg-stone-50">
-      <p class="text-amber-700 font-black uppercase tracking-[0.25em]">Impact par thématiques</p>
-      <h2 class="serif mt-4 text-4xl font-black">Une audience équilibrée, majoritairement éducative et institutionnelle</h2>
-      <div class="mt-10 space-y-6">
-        <div>
-          <div class="flex justify-between font-bold mb-2"><span>Littérature & Pensée</span><span>45%</span></div>
-          <div class="h-4 rounded-full bg-stone-200"><div class="h-4 rounded-full bg-amber-700 w-[45%]"></div></div>
+<!-- SECTION 11 - Impact par Thématiques + Chart.js -->
+<section><div class="outer"><div class="inner"><div class="bg gradient-bg-blue">
+    <div class="section-content"><h2 class="gradient-text" style="font-size: 2rem; text-align: center;">Impact par Thématiques Culturelles</h2>
+        <div style="display: flex; flex-wrap: wrap; gap: 3rem; align-items: center; justify-content: center; margin-top: 2rem;">
+            <div style="flex:1; min-width:240px; display: flex; justify-content: center;"><canvas id="thematiquesChart" width="350" height="350" style="max-width: 260px; max-height: 260px;"></canvas></div>
+            <div style="flex:1">
+                <div><div>Littérature & Pensée (45%)</div><div class="progress-bar"><div class="progress-fill" style="width:45%"></div></div></div>
+                <div style="margin:1.5rem 0"><div>Arts Visuels & Patrimoine (30%)</div><div class="progress-bar"><div class="progress-fill" style="width:30%"></div></div></div>
+                <div><div>Politiques Culturelles (25%)</div><div class="progress-bar"><div class="progress-fill" style="width:25%"></div></div></div>
+                <div class="quote-modern" style="margin-top: 2rem; font-size:0.9rem;">Une répartition équilibrée pour couvrir l'ensemble des piliers de la Convention de 2005.</div>
+            </div>
         </div>
-        <div>
-          <div class="flex justify-between font-bold mb-2"><span>Arts & Patrimoine</span><span>30%</span></div>
-          <div class="h-4 rounded-full bg-stone-200"><div class="h-4 rounded-full bg-amber-700 w-[30%]"></div></div>
-        </div>
-        <div>
-          <div class="flex justify-between font-bold mb-2"><span>Politiques Culturelles</span><span>25%</span></div>
-          <div class="h-4 rounded-full bg-stone-200"><div class="h-4 rounded-full bg-amber-700 w-[25%]"></div></div>
-        </div>
-      </div>
-    </section>
+    </div>
+</div></div></div></section>
 
-    <!-- CONTACT -->
-    <section class="px-8 md:px-16 py-20 bg-[#18120c] text-white">
-      <div class="grid md:grid-cols-2 gap-10 items-center">
-        <div>
-          <p class="text-amber-300 font-black uppercase tracking-[0.25em]">Collaborons pour la Culture</p>
-          <h2 class="serif mt-4 text-5xl font-black leading-tight">Une expertise média au service des priorités de l'UNESCO.</h2>
+<!-- SECTION 12 - Collaborons pour la Culture -->
+<section><div class="outer"><div class="inner"><div class="bg gradient-bg-1">
+    <div class="section-content" style="text-align: center;">
+        <i class="fas fa-hands-helping" style="font-size: 3.5rem; color: #38BDF8; margin-bottom: 1rem;"></i>
+        <h2 class="gradient-text" style="font-size: 2.2rem;">Collaborons pour la Culture</h2>
+        <p style="color: #94A3B8; margin-bottom: 2rem;">Une expertise média au service des priorités de l'UNESCO.</p>
+        <div style="display: flex; gap: 1.5rem; flex-wrap: wrap; justify-content: center;">
+            <div class="glow-card" style="display: inline-block; padding: 1rem 2rem;"><i class="far fa-envelope"></i> contact@mamendiawar.com</div>
+            <div class="glow-card" style="display: inline-block; padding: 1rem 2rem;"><i class="fas fa-globe"></i> www.rtssenegal.sn</div>
         </div>
-        <div class="rounded-3xl bg-white text-stone-950 p-8">
-          <p><strong>Porteuse :</strong> [Votre Nom]</p>
-          <p class="mt-3"><strong>Profil :</strong> Journaliste Culturelle | Anciennement RTS (Kenkeliba)</p>
-          <p class="mt-3"><strong>Email :</strong> contact@votremedia.com</p>
-          <p class="mt-3"><strong>Téléphone :</strong> +221 XX XXX XX XX</p>
-          <p class="mt-3"><strong>Localisation :</strong> Dakar, Sénégal</p>
-        </div>
-      </div>
-    </section>
+        <div style="margin-top: 2rem; font-size: 0.8rem; color: #64748B;">Mame Ndiawar Diallo · Journaliste Culturelle, Productrice</div>
+    </div>
+</div></div></div></section>
 
-  </main>
+<script>
+    const ctx = document.getElementById('thematiquesChart').getContext('2d');
+    new Chart(ctx, {
+        type: 'doughnut',
+        data: {
+            labels: ['Littérature & Pensée 45%', 'Arts Visuels & Patrimoine 30%', 'Politiques Culturelles 25%'],
+            datasets: [{ data: [45,30,25], backgroundColor: ['#38BDF8','#818CF8','#A78BFA'], borderColor: '#0F172A', borderWidth: 3 }]
+        },
+        options: { responsive: true, maintainAspectRatio: true, cutout: '60%', plugins: { legend: { position: 'bottom', labels: { font: { size: 12, family: 'Space Grotesk' }, color: '#CBD5E1' } } } }
+    });
+</script>
 </body>
 </html>
